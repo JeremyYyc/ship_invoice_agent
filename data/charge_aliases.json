@@ -1,0 +1,32 @@
+{
+  "Handling Charge": [
+    "Handling Fee",
+    "H/D Fee",
+    "Handling Chg",
+    "H/C"
+  ],
+  "Documentation Fee": [
+    "Doc Fee",
+    "Documentation Charge"
+  ],
+  "Terminal Handling Charge": [
+    "THC"
+  ],
+  "Trucking Charge": [
+    "Trucking Fee"
+  ],
+  "Customs Clearance Fee": [
+    "Customs Fee"
+  ],
+  "Storage Charge": [
+    "Storage Fee"
+  ],
+  "Wharfage Administration Fee": [
+    "Wharfage Admin Fee"
+  ],
+  "Additional Detention Free Time Charge": [
+    "4 ADD'L DETENTION FREE TIME CHARGE",
+    "Additional Detention Free Time"
+  ]
+}
+

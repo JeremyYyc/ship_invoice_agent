@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ship-invoice-agent"
+version = "0.1.0"
+description = "A LangChain-based shipping invoice extraction and reconciliation agent"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "langchain>=1.0,<2",
+  "langchain-openai>=0.3,<2",
+  "openpyxl>=3.1,<4",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "python-docx>=1.1,<2",
+  "requests>=2.32,<3",
+  "uvicorn>=0.34,<1",
+  "xlrd>=2.0,<3",
+]
+
+[project.optional-dependencies]
+ocr = [
+  "pdf2image>=1.17,<2",
+  "Pillow>=11,<13",
+  "pytesseract>=0.3.13,<1",
+]
+anthropic = ["langchain-anthropic>=0.3,<2"]
+google = ["langchain-google-genai>=2,<5"]
+aws = ["langchain-aws>=0.2,<2"]
+ollama = ["langchain-ollama>=0.2,<2"]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+ship-invoice-agent = "ship_invoice_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ship_invoice_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "live: requires live OCR and LLM services",
+  "slow: slow local OCR integration tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+

@@ -1,0 +1,21 @@
+services:
+  file-server:
+    image: python:3.12-slim
+    working_dir: /files
+    command: ["python", "-m", "http.server", "8081", "--bind", "0.0.0.0"]
+    volumes:
+      - ./.runtime/files:/files:ro
+    ports:
+      - "8081:8081"
+
+  local-ocr:
+    build:
+      context: .
+      dockerfile: local_ocr/Dockerfile
+    environment:
+      LOCAL_OCR_LANGUAGE: ${LOCAL_OCR_LANGUAGE:-eng}
+    ports:
+      - "${OCR_HOST_PORT:-8001}:8001"
+    depends_on:
+      - file-server
+

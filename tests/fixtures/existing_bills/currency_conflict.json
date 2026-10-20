@@ -1,0 +1,21 @@
+[
+  {
+    "bill_id": "BILL-000003",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 65.0,
+      "currency": "CNY",
+      "payment_term": null
+    },
+    "shipment_info": {}
+  }
+]

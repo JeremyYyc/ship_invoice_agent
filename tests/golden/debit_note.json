@@ -1,0 +1,21 @@
+{
+  "reference_no": "DC108478",
+  "charges": [
+    {
+      "charge_item": "Handling Charge",
+      "amount": 65.0,
+      "currency": "USD"
+    },
+    {
+      "charge_item": "Additional Detention Free Time Charge",
+      "amount": 1310.4,
+      "currency": "USD"
+    },
+    {
+      "charge_item": "Handling Charge",
+      "amount": 35.0,
+      "currency": "USD"
+    }
+  ]
+}
+
