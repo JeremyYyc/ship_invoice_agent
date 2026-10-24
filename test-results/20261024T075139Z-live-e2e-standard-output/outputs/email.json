@@ -1,0 +1,124 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "pre-alert",
+      "reference_no": "SSZSE26093128",
+      "document_date": "2026-10-20"
+    },
+    "transaction_party": {
+      "issuer": "luka@pltplt.com",
+      "recipient": "li@pltplt.com"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 50.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "original_charge_item alias mapped deterministically to Handling Charge",
+        "model proposed Terminal Handling Charge; deterministic evidence took precedence",
+        "warning: AR_AP_UNRESOLVED",
+        "warning: Freight is stated as Prepaid in header but no specific freight amount line is provided.",
+        "warning: MODEL_CHARGE_NAME_CONFLICT",
+        "warning: MODEL_CHARGE_NAME_OVERRIDDEN",
+        "warning: Payment term for H/C is inferred as Collect (CC) from 'SHA pay' context."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "warning: NO_CHARGES_EXTRACTED",
+        "warning: NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Master Bill of Lading",
+      "reference_no": null,
+      "document_date": "2026-10-01"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "TARGETING AINC"
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "accounting entity is issuer/payee",
+        "warning: NO_CHARGES_EXTRACTED",
+        "warning: NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "House Bill of Lading",
+      "reference_no": null,
+      "document_date": "2026-10-15"
+    },
+    "transaction_party": {
+      "issuer": "SUN TRACK EXPRESS (CHINA) CO LTD",
+      "recipient": "VASINGER LLC"
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "warning: NO_CHARGES_EXTRACTED",
+        "warning: NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  }
+]

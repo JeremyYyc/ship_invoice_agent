@@ -1,0 +1,50 @@
+[
+  {
+    "case_id": "pdf1",
+    "file_url": "http://file-server:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf",
+    "started_at": "2026-10-24T07:52:12.215016+00:00",
+    "elapsed_seconds": 3.502066,
+    "status": "success",
+    "artifact": "raw_ocr/pdf1_01_PDF示例账单1.pdf.json"
+  },
+  {
+    "case_id": "pdf2",
+    "file_url": "http://file-server:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf",
+    "started_at": "2026-10-24T07:52:23.644242+00:00",
+    "elapsed_seconds": 0.956619,
+    "status": "success",
+    "artifact": "raw_ocr/pdf2_01_PDF_示例账单2.pdf.json"
+  },
+  {
+    "case_id": "email",
+    "file_url": "http://file-server:8081/InsertPic_C25B.jpg",
+    "started_at": "2026-10-24T07:52:38.989541+00:00",
+    "elapsed_seconds": 0.42952,
+    "status": "success",
+    "artifact": "raw_ocr/email_01_InsertPic_C25B.jpg.json"
+  },
+  {
+    "case_id": "email",
+    "file_url": "http://file-server:8081/4055331281%C2%A0MBL.pdf",
+    "started_at": "2026-10-24T07:52:39.423454+00:00",
+    "elapsed_seconds": 1.100462,
+    "status": "success",
+    "artifact": "raw_ocr/email_02_4055331281_MBL.pdf.json"
+  },
+  {
+    "case_id": "email",
+    "file_url": "http://file-server:8081/4055331281%C2%A0HBL.pdf",
+    "started_at": "2026-10-24T07:52:40.530251+00:00",
+    "elapsed_seconds": 0.757331,
+    "status": "success",
+    "artifact": "raw_ocr/email_03_4055331281_HBL.pdf.json"
+  },
+  {
+    "case_id": "image",
+    "file_url": "http://file-server:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png",
+    "started_at": "2026-10-24T07:53:14.088393+00:00",
+    "elapsed_seconds": 0.325593,
+    "status": "success",
+    "artifact": "raw_ocr/image_01_图片示例.png.json"
+  }
+]

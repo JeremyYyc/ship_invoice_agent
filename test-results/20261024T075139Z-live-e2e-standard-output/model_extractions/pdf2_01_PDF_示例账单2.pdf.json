@@ -1,0 +1,71 @@
+{
+  "source_name": "PDF 示例账单2.pdf",
+  "parent_source": null,
+  "elapsed_seconds": 14.345422,
+  "extracted": {
+    "document_type": "Debit Note",
+    "reference_no": "DC-108478",
+    "document_date": "2026-10-24",
+    "issuer": "NEPTUNE SHIPPING LIMITED (LAX)",
+    "recipient": "AEBO TCO IMPORT LLC",
+    "payee": "NEPTUNE SHIPPING LIMITED",
+    "master_bill_of_lading_no": "MAEU275752922",
+    "house_bill_of_lading_no": "CGT260801188",
+    "booking_no": null,
+    "container_numbers": [
+      "MRSU2571577",
+      "TCLU8619685"
+    ],
+    "vessel": "MARGRETHE MAERSK",
+    "voyage": "635W",
+    "port_of_loading": "QINGDAO LIUTING INTERNATIONAL APT (CHINA)",
+    "port_of_discharge": "SAVANNAH, GA (UNITED STATES)",
+    "eta": "2026-10-28",
+    "etd": "2026-08-30",
+    "subtotal": "1410.4",
+    "tax": null,
+    "total": "1410.4",
+    "charges": [
+      {
+        "original_charge_item": "HANDLING CHARGE",
+        "charge_item": "Handling Charge",
+        "quantity": "1.0",
+        "unit_price": "65.0",
+        "amount": "65.0",
+        "currency": "USD",
+        "payment_term": "CC",
+        "source_text": "HANDLING CHARGE - 65.00 1.00 c 65.00",
+        "source_page": 1,
+        "confidence": 0.95
+      },
+      {
+        "original_charge_item": "ADD'L DETENTION FREE TIME CHARGE",
+        "charge_item": "Additional Detention Free Time Charge",
+        "quantity": "1.0",
+        "unit_price": "1310.4",
+        "amount": "1310.4",
+        "currency": "USD",
+        "payment_term": "CC",
+        "source_text": "4 ADD'L DETENTION FREE TIME CHARGE - 1,310.40 1.00 c 1,310.40",
+        "source_page": 1,
+        "confidence": 0.95
+      },
+      {
+        "original_charge_item": "HANDLING CHARGE",
+        "charge_item": "Handling Charge",
+        "quantity": "1.0",
+        "unit_price": "35.0",
+        "amount": "35.0",
+        "currency": "USD",
+        "payment_term": "CC",
+        "source_text": "HANDLING CHARGE - 35.00 1.00 c 35.00",
+        "source_page": 1,
+        "confidence": 0.95
+      }
+    ],
+    "warnings": [
+      "OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms.",
+      "Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name."
+    ]
+  }
+}
