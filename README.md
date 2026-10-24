@@ -122,6 +122,11 @@ curl http://127.0.0.1:8001/health
 }
 ```
 
+本地 OCR 响应进入 LLM 前会经过 `LocalOCRAdapter`：优先保留带 `[PAGE n]`
+标记的 `pages[].text`；页面文本缺失时使用该页 `lines`，全部页面内容缺失时再回退到
+`full_text`。因此不会同时发送 `pages[].text`、`pages[].lines` 和 `full_text` 三份重复内容。
+无法识别的企业 OCR Schema 暂时回退为删除二进制字段后的原始 JSON，后续可增加对应 Adapter。
+
 企业环境中只替换 `OCR_API_URL` 和每个文件的 `file_url`。
 
 ## 使用

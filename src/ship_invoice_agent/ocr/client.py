@@ -1,5 +1,3 @@
-import base64
-import json
 import shutil
 import time
 from pathlib import Path
@@ -10,8 +8,7 @@ import requests
 
 from ship_invoice_agent.config import Settings
 from ship_invoice_agent.exceptions import OCRServiceError
-
-_BINARY_KEYS = {"image", "image_base64", "base64", "binary", "bytes"}
+from ship_invoice_agent.ocr.local_adapter import LocalOCRAdapter
 
 
 class OCRClient:
@@ -19,6 +16,7 @@ class OCRClient:
 
     def __init__(self, settings: Settings):
         self.settings = settings
+        self.adapter = LocalOCRAdapter(settings.ocr_max_response_chars)
 
     def stage_file(self, source: Path) -> tuple[Path, str]:
         root = self.settings.local_file_server_root
@@ -59,25 +57,6 @@ class OCRClient:
         raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
 
     def sanitize_for_llm(self, raw: dict[str, Any] | list[Any]) -> str:
-        """Remove obvious binary payloads without assuming a provider-specific schema."""
+        """Adapt local OCR output, with a safe raw-JSON fallback for unknown schemas."""
 
-        def clean(value: Any, key: str | None = None) -> Any:
-            if key and key.lower() in _BINARY_KEYS and isinstance(value, str):
-                return "[binary content omitted]"
-            if isinstance(value, dict):
-                return {str(k): clean(v, str(k)) for k, v in value.items()}
-            if isinstance(value, list):
-                return [clean(item) for item in value]
-            if isinstance(value, str) and len(value) > 4096:
-                try:
-                    base64.b64decode(value[:1024], validate=True)
-                    return "[probable base64 content omitted]"
-                except Exception:
-                    return value
-            return value
-
-        serialized = json.dumps(clean(raw), ensure_ascii=False, separators=(",", ":"))
-        limit = self.settings.ocr_max_response_chars
-        if len(serialized) > limit:
-            serialized = serialized[:limit] + '\n{"_truncated":true}'
-        return serialized
+        return self.adapter.to_llm_content(raw)
