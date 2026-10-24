@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-24T03:08:53Z",
+  "commit": "7299678e8188629133aff19f56591096ae89f2eb",
+  "business_code_modified": false,
+  "tests": {
+    "pytest": {"status": "passed", "passed": 13, "failed": 0},
+    "ruff_business_scope": {"status": "passed", "scope": ["src", "local_ocr", "tests", "scripts"]},
+    "ruff_repository_root": {
+      "status": "failed",
+      "reason": "two E501 findings in untracked archived test-results harness",
+      "business_source_findings": 0
+    }
+  },
+  "probes": {
+    "recipient_conflict": {
+      "expected": "PENDING_REVIEW",
+      "actual": "NO_CHANGE",
+      "conflicts": [],
+      "status": "failed"
+    },
+    "same_agent_two_process_without_apply": {
+      "first": "CREATE",
+      "second": "NO_CHANGE",
+      "second_warning": "DUPLICATE_IN_CURRENT_BATCH",
+      "repository_count": 0,
+      "status": "failed"
+    },
+    "warning_review_gate": {
+      "warning": "POSSIBLE_OCR_CHARACTER_CONFUSION:0",
+      "requires_review": false,
+      "operation": "CREATE",
+      "status": "failed"
+    },
+    "apply_fresh_agent_idempotency": {
+      "first": "CREATE",
+      "count_after_first": 1,
+      "fresh_agent_second": "NO_CHANGE",
+      "count_after_second": 1,
+      "status": "passed_probe_only"
+    },
+    "ocr_transient_retry": {
+      "connection_errors_before_success": 2,
+      "post_calls": 3,
+      "sleep_calls": 2,
+      "timeout": [10, 300],
+      "status": "passed_probe_only"
+    },
+    "ocr_400_retry": {
+      "post_calls": 3,
+      "sleep_calls": 2,
+      "expected_direction": "non-retryable 4xx should fail once",
+      "status": "policy_gap"
+    }
+  },
+  "running_related_processes": 0,
+  "running_related_containers": 0
+}

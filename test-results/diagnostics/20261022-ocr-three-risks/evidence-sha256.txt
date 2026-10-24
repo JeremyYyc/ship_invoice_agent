@@ -1,0 +1,6 @@
+3e3a27af51a666e4f640630b42ef5fa3380ce7d3f61ba9ebaa0da2c89c64728e  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/pixel-evidence/hbl-page1.png
+65b0c4c1eb4e34eb1c6c040740811cd1a9318f0bfc5df1c34e61fc8ceaf95e3e  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/REPORT.md
+8fc7c81f49d99256c3e028a7b3f8682aa3f68be055299571e763472bb71bf3f7  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/pixel-evidence/inline-marketing-banner.jpg
+c433693b094416c9d19ec7c0cd6f4be08e7826601fc424a5b86fb71dfa69aad6  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/evidence.json
+d4146792edf0e5d73177935bb2fdeb702127d2703d401cac3404d4cf03134689  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/pixel-evidence/pdf1-page2.png
+f6bdbe8b091c87fb818550ce003cf754369de443890bcf36445f6ca00526c55a  /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/diagnostics/20261022-ocr-three-risks/pixel-evidence/pdf1-page1.png
