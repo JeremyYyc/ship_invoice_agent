@@ -1,0 +1,79 @@
+[
+  {
+    "top_level_source": "PDF示例账单1.pdf",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf",
+    "source_name": "PDF示例账单1.pdf",
+    "source_type": "pdf",
+    "parent_source": null,
+    "file_hash": "7f0681695a278ea49dc50090bb1bc476b3c73bbc4a3d4862bc31a013d2ad045d",
+    "content_chars": 27344,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf"
+  },
+  {
+    "top_level_source": "PDF 示例账单2.pdf",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf",
+    "source_name": "PDF 示例账单2.pdf",
+    "source_type": "pdf",
+    "parent_source": null,
+    "file_hash": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba",
+    "content_chars": 4300,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf"
+  },
+  {
+    "top_level_source": "sample-pre-alert.eml",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml",
+    "source_name": "sample-pre-alert.eml",
+    "source_type": "eml",
+    "parent_source": null,
+    "file_hash": "fad3298ec8fd3da0e092dfbed0a313be28170073f1e01125195a5dfe9b886e58",
+    "content_chars": 767,
+    "has_ocr_raw": false,
+    "file_url": null
+  },
+  {
+    "top_level_source": "sample-pre-alert.eml",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/InsertPic_C25B.jpg",
+    "source_name": "InsertPic_C25B.jpg",
+    "source_type": "jpg",
+    "parent_source": "sample-pre-alert.eml",
+    "file_hash": "8fc7c81f49d99256c3e028a7b3f8682aa3f68be055299571e763472bb71bf3f7",
+    "content_chars": 223,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/InsertPic_C25B.jpg"
+  },
+  {
+    "top_level_source": "sample-pre-alert.eml",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/4055331281 MBL.pdf",
+    "source_name": "4055331281 MBL.pdf",
+    "source_type": "pdf",
+    "parent_source": "sample-pre-alert.eml",
+    "file_hash": "e85bee3e3c663e985beb6d3f8b1ba33c2bc724376709dc00882278e06809f75a",
+    "content_chars": 9763,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/4055331281%C2%A0MBL.pdf"
+  },
+  {
+    "top_level_source": "sample-pre-alert.eml",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/4055331281 HBL.pdf",
+    "source_name": "4055331281 HBL.pdf",
+    "source_type": "pdf",
+    "parent_source": "sample-pre-alert.eml",
+    "file_hash": "b577030300701c565822321b45178c6837095484795ca3061b70ab880d05f293",
+    "content_chars": 6052,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/4055331281%C2%A0HBL.pdf"
+  },
+  {
+    "top_level_source": "图片示例.png",
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png",
+    "source_name": "图片示例.png",
+    "source_type": "png",
+    "parent_source": null,
+    "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+    "content_chars": 2343,
+    "has_ocr_raw": true,
+    "file_url": "http://ship-files-test-20261022072845-70634:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png"
+  }
+]

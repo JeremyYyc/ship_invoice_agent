@@ -1,0 +1,233 @@
+[
+    {
+        "Id": "9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97",
+        "Created": "2026-10-22T07:28:46.560641841Z",
+        "Path": "uvicorn",
+        "Args": [
+            "local_ocr.app:app",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "8001"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 36676,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-22T07:28:46.672729842Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:b2cc6e19807f7eba955e0140dff338e3d2a69b807be3e0d00184ac3b1d0eac4f",
+        "ResolvConfPath": "/var/lib/docker/containers/9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97/hostname",
+        "HostsPath": "/var/lib/docker/containers/9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97/hosts",
+        "LogPath": "/var/lib/docker/containers/9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97/9bbe116cc07de0b6533634f50bb9acf884506c725f0296162bb1b82c659bfb97-json.log",
+        "Name": "/ship-ocr-test-20261022072845-70634",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "ship-ocr-test-20261022072845-70634",
+            "PortBindings": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "61522"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "9bbe116cc07d",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8001/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "LOCAL_OCR_LANGUAGE=eng",
+                "NO_PROXY=ship-files-test-20261022072845-70634,localhost,127.0.0.1",
+                "no_proxy=ship-files-test-20261022072845-70634,localhost,127.0.0.1",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.13",
+                "PYTHON_SHA256=c08bc65a81971c1dd5783182826503369466c7e67374d1646519adf05207b684"
+            ],
+            "Cmd": [
+                "uvicorn",
+                "local_ocr.app:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8001"
+            ],
+            "Image": "ship_invoice_agent-local-ocr",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": null,
+            "Labels": {
+                "com.docker.compose.project": "ship_invoice_agent",
+                "com.docker.compose.service": "local-ocr",
+                "com.docker.compose.version": "5.0.2"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "f6c614d89c83ca3a5ce68e187543829a8d4a71e3c60c90b58fd39a0172f58104",
+            "SandboxKey": "/var/run/docker/netns/f6c614d89c83",
+            "Ports": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "61522"
+                    }
+                ]
+            },
+            "Networks": {
+                "ship-ocr-test-20261022072845-70634": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "5447037bc68a466759ee7c15d5d00dc08d02e561e8887abe03e99d3e227099d9",
+                    "EndpointID": "c01d89bc48d82b5d8a76a76d7218f139afd6579d762c627b0abe25a2b0175653",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.3",
+                    "MacAddress": "4a:86:24:c8:99:d8",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "ship-ocr-test-20261022072845-70634",
+                        "9bbe116cc07d"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:cb3f3246835b00be8a67e62865214a90fb055692b14d63fe38e50cf98afac979",
+            "size": 2006,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]

@@ -1,0 +1,182 @@
+2026-10-22 15:27:46,350Z INFO top_level_start path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf
+2026-10-22 15:27:46,351Z INFO stage_file {"source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf", "target": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/PDF示例账单1.pdf", "file_url": "http://ship-files-test-20261022072743-70502:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf", "size_bytes": 151278, "sha256": "7f0681695a278ea49dc50090bb1bc476b3c73bbc4a3d4862bc31a013d2ad045d"}
+2026-10-22 15:27:46,351Z INFO ocr_request {"started_at": "2026-10-22T07:27:46.351299+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300]}
+2026-10-22 15:27:50,277Z ERROR ocr_request_failed file_url=http://ship-files-test-20261022072743-70502:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:50,278Z INFO ocr_result {"started_at": "2026-10-22T07:27:46.351299+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300], "status": "error", "error_type": "OCRServiceError", "error": "OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process", "traceback": "Traceback (most recent call last):\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 50, in recognize\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py\", line 78, in recognize\n    result = super().recognize(file_url)\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 59, in recognize\n    raise OCRServiceError(f\"OCR request failed: {last_error}\") from last_error\nship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n", "elapsed_seconds": 3.92698, "finished_at": "2026-10-22T07:27:50.278336+00:00"}
+2026-10-22 15:27:50,280Z ERROR top_level_failed path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 172, in main
+    parsed = router.parse(top_path)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 40, in parse
+    raw_ocr = self.ocr_client.recognize(file_url)
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:50,281Z INFO top_level_start path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf
+2026-10-22 15:27:50,282Z INFO stage_file {"source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf", "target": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/PDF 示例账单2.pdf", "file_url": "http://ship-files-test-20261022072743-70502:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf", "size_bytes": 77705, "sha256": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba"}
+2026-10-22 15:27:50,282Z INFO ocr_request {"started_at": "2026-10-22T07:27:50.282744+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300]}
+2026-10-22 15:27:54,046Z ERROR ocr_request_failed file_url=http://ship-files-test-20261022072743-70502:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:54,048Z INFO ocr_result {"started_at": "2026-10-22T07:27:50.282744+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300], "status": "error", "error_type": "OCRServiceError", "error": "OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process", "traceback": "Traceback (most recent call last):\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 50, in recognize\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py\", line 78, in recognize\n    result = super().recognize(file_url)\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 59, in recognize\n    raise OCRServiceError(f\"OCR request failed: {last_error}\") from last_error\nship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n", "elapsed_seconds": 3.765122, "finished_at": "2026-10-22T07:27:54.047918+00:00"}
+2026-10-22 15:27:54,048Z ERROR top_level_failed path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 172, in main
+    parsed = router.parse(top_path)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 40, in parse
+    raw_ocr = self.ocr_client.recognize(file_url)
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:54,049Z INFO top_level_start path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml
+2026-10-22 15:27:54,088Z INFO stage_file {"source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/InsertPic_C25B.jpg", "target": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/InsertPic_C25B.jpg", "file_url": "http://ship-files-test-20261022072743-70502:8081/InsertPic_C25B.jpg", "size_bytes": 794853, "sha256": "8fc7c81f49d99256c3e028a7b3f8682aa3f68be055299571e763472bb71bf3f7"}
+2026-10-22 15:27:54,089Z INFO ocr_request {"started_at": "2026-10-22T07:27:54.089027+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/InsertPic_C25B.jpg", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/InsertPic_C25B.jpg", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300]}
+2026-10-22 15:27:57,735Z ERROR ocr_request_failed file_url=http://ship-files-test-20261022072743-70502:8081/InsertPic_C25B.jpg
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:57,737Z INFO ocr_result {"started_at": "2026-10-22T07:27:54.089027+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/InsertPic_C25B.jpg", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/InsertPic_C25B.jpg", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300], "status": "error", "error_type": "OCRServiceError", "error": "OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process", "traceback": "Traceback (most recent call last):\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 50, in recognize\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py\", line 78, in recognize\n    result = super().recognize(file_url)\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 59, in recognize\n    raise OCRServiceError(f\"OCR request failed: {last_error}\") from last_error\nship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n", "elapsed_seconds": 3.647956, "finished_at": "2026-10-22T07:27:57.737034+00:00"}
+2026-10-22 15:27:57,738Z ERROR top_level_failed path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 172, in main
+    parsed = router.parse(top_path)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 36, in parse
+    return self._parse_email(path, file_hash, parent_source, depth)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 104, in _parse_email
+    self.parse(
+    ~~~~~~~~~~^
+        attachment_path,
+        ^^^^^^^^^^^^^^^^
+        parent_source=path.name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        depth=depth + 1,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 40, in parse
+    raw_ocr = self.ocr_client.recognize(file_url)
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:27:57,739Z INFO top_level_start path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png
+2026-10-22 15:27:57,742Z INFO stage_file {"source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png", "target": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/图片示例.png", "file_url": "http://ship-files-test-20261022072743-70502:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png", "size_bytes": 91964, "sha256": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93"}
+2026-10-22 15:27:57,742Z INFO ocr_request {"started_at": "2026-10-22T07:27:57.742560+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300]}
+2026-10-22 15:28:01,445Z ERROR ocr_request_failed file_url=http://ship-files-test-20261022072743-70502:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+2026-10-22 15:28:01,447Z INFO ocr_result {"started_at": "2026-10-22T07:27:57.742560+00:00", "endpoint": "http://127.0.0.1:61316/process", "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png", "payload": {"file": "http://ship-files-test-20261022072743-70502:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png", "task": "orderChange", "callBack": "", "taskType": ""}, "timeout_seconds": [10, 300], "status": "error", "error_type": "OCRServiceError", "error": "OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process", "traceback": "Traceback (most recent call last):\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 50, in recognize\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py\", line 78, in recognize\n    result = super().recognize(file_url)\n  File \"/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py\", line 59, in recognize\n    raise OCRServiceError(f\"OCR request failed: {last_error}\") from last_error\nship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process\n", "elapsed_seconds": 3.70445, "finished_at": "2026-10-22T07:28:01.447060+00:00"}
+2026-10-22 15:28:01,448Z ERROR top_level_failed path=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png
+Traceback (most recent call last):
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 50, in recognize
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 172, in main
+    parsed = router.parse(top_path)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/parsers/router.py", line 40, in parse
+    raw_ocr = self.ocr_client.recognize(file_url)
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 78, in recognize
+    result = super().recognize(file_url)
+  File "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/src/ship_invoice_agent/ocr/client.py", line 59, in recognize
+    raise OCRServiceError(f"OCR request failed: {last_error}") from last_error
+ship_invoice_agent.exceptions.OCRServiceError: OCR request failed: 502 Server Error: Bad Gateway for url: http://127.0.0.1:61316/process

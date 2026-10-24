@@ -1,0 +1,5 @@
+2026-10-22T07:27:45.132772466Z INFO:     Started server process [1]
+2026-10-22T07:27:45.132806299Z INFO:     Waiting for application startup.
+2026-10-22T07:27:45.133679507Z INFO:     Application startup complete.
+2026-10-22T07:27:45.135108882Z INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+2026-10-22T07:27:45.472740674Z INFO:     172.18.0.1:58114 - "GET /health HTTP/1.1" 200 OK

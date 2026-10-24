@@ -1,0 +1,70 @@
+[
+    {
+        "Id": "sha256:b2cc6e19807f7eba955e0140dff338e3d2a69b807be3e0d00184ac3b1d0eac4f",
+        "RepoTags": [
+            "ship_invoice_agent-local-ocr:latest"
+        ],
+        "RepoDigests": [
+            "ship_invoice_agent-local-ocr@sha256:b2cc6e19807f7eba955e0140dff338e3d2a69b807be3e0d00184ac3b1d0eac4f"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-20T14:23:01.071986046Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.13",
+                "PYTHON_SHA256=c08bc65a81971c1dd5783182826503369466c7e67374d1646519adf05207b684"
+            ],
+            "Cmd": [
+                "uvicorn",
+                "local_ocr.app:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8001"
+            ],
+            "WorkingDir": "/app",
+            "Labels": {
+                "com.docker.compose.project": "ship_invoice_agent",
+                "com.docker.compose.service": "local-ocr",
+                "com.docker.compose.version": "5.0.2"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 118731077,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:92c4615992c3683ccd14763ed9c3820e97913e6bd7c6a1842df46225103a52ac",
+                "sha256:c06660a75e62c78b0bdc2e7c14478e927e0e3ecbcf986f31e964e39953e2bd5b",
+                "sha256:acb518bab65230815d89a06befdf1c94eefe521dc2730f0d4464d6ae04e50316",
+                "sha256:09efe4f0e17b4e1388b3d72683750101cd630e9bbfb8cc0c6a51ad7bc0bc0d80",
+                "sha256:0708ab59168a7536c78a190a812e6e1558a0e26600bf31015d854430eb6abf7d",
+                "sha256:ab41ca2c8fb3d8c92d10829a351406e8e1600828768ac34ede4f3e3d7c02a96c",
+                "sha256:c18fadaca8d7b2af800bb56d16bf511f5d1307f8bb66ba044d4a6cfe79431531",
+                "sha256:0040d1b1fbac994e0920b1a972103f9b657430e3fe76065775ed961cfbe7b8d9",
+                "sha256:0c24ac1817b15bc80e0c88f73a08680cf432a6d2dcb803b976eeed681086f5b9"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-20T14:23:04.198694089Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:b2cc6e19807f7eba955e0140dff338e3d2a69b807be3e0d00184ac3b1d0eac4f",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "pbmh6v95q6utaxn4nnbfdyc11",
+                    "CreatedAt": "2026-10-20T14:23:05.193776756Z"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,12 @@
+run_id=20261022T072845Z-local-ocr
+result_dir=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/20261022T072845Z-local-ocr
+network=ship-ocr-test-20261022072845-70634
+file_container=ship-files-test-20261022072845-70634
+ocr_container=ship-ocr-test-20261022072845-70634
+ocr_host_binding=127.0.0.1:61522:8001
+file_server_published_ports=none
+llm_called=false
+external_ocr_called=false
+apply_used=false
+proxy_bypass=127.0.0.1,localhost,ship-files-test-20261022072845-70634
+retry_note=retry after first run showed host proxy intercepting loopback OCR requests with 502; added per-process and per-container NO_PROXY only

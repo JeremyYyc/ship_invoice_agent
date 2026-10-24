@@ -1,0 +1,231 @@
+[
+    {
+        "Id": "5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093",
+        "Created": "2026-10-22T07:27:44.160032507Z",
+        "Path": "uvicorn",
+        "Args": [
+            "local_ocr.app:app",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "8001"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 33445,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-22T07:27:44.28560834Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:b2cc6e19807f7eba955e0140dff338e3d2a69b807be3e0d00184ac3b1d0eac4f",
+        "ResolvConfPath": "/var/lib/docker/containers/5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093/hostname",
+        "HostsPath": "/var/lib/docker/containers/5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093/hosts",
+        "LogPath": "/var/lib/docker/containers/5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093/5e3e2ee67f4fc0633a8a8552becb0d65776e001930268fd59d38cc4219c26093-json.log",
+        "Name": "/ship-ocr-test-20261022072743-70502",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "ship-ocr-test-20261022072743-70502",
+            "PortBindings": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "61316"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "5e3e2ee67f4f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8001/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "LOCAL_OCR_LANGUAGE=eng",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.13",
+                "PYTHON_SHA256=c08bc65a81971c1dd5783182826503369466c7e67374d1646519adf05207b684"
+            ],
+            "Cmd": [
+                "uvicorn",
+                "local_ocr.app:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8001"
+            ],
+            "Image": "ship_invoice_agent-local-ocr",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": null,
+            "Labels": {
+                "com.docker.compose.project": "ship_invoice_agent",
+                "com.docker.compose.service": "local-ocr",
+                "com.docker.compose.version": "5.0.2"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "f8900977002fe44daba97d5a6e767545cb6266a13efa8136c3937ce64f74054b",
+            "SandboxKey": "/var/run/docker/netns/f8900977002f",
+            "Ports": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "61316"
+                    }
+                ]
+            },
+            "Networks": {
+                "ship-ocr-test-20261022072743-70502": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "90e90eff5992a90009dd6d36a16f8df845bb43040cd208411e18328f2429214a",
+                    "EndpointID": "6d471ac31ecde49409d00e152518cfa7788e5572b3d852ed63297d98e81dc4c4",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.3",
+                    "MacAddress": "0e:97:e6:59:63:60",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "ship-ocr-test-20261022072743-70502",
+                        "5e3e2ee67f4f"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:cb3f3246835b00be8a67e62865214a90fb055692b14d63fe38e50cf98afac979",
+            "size": 2006,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]
