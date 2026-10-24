@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 370, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py", line 283, in main
+    email_body = next(
+        (document_dir / f"{index:02d}_{safe_name(email_name)}.txt").read_text(
+    ...<3 lines>...
+        if item["source_name"] == email_name and item["parent_source"] is None
+    )
+StopIteration

@@ -1,0 +1,10 @@
+run_id=20261022T072743Z-local-ocr
+result_dir=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/20261022T072743Z-local-ocr
+network=ship-ocr-test-20261022072743-70502
+file_container=ship-files-test-20261022072743-70502
+ocr_container=ship-ocr-test-20261022072743-70502
+ocr_host_binding=127.0.0.1:61316:8001
+file_server_published_ports=none
+llm_called=false
+external_ocr_called=false
+apply_used=false

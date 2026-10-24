@@ -1,0 +1,9 @@
+docker network create ship-ocr-test-20261022072743-70502
+docker run -d --rm --pull=never --name ship-files-test-20261022072743-70502 --network ship-ocr-test-20261022072743-70502 -v /Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files:/files:ro python:3.12-slim python -m http.server 8081 --bind 0.0.0.0 --directory /files
+docker run -d --rm --pull=never --name ship-ocr-test-20261022072743-70502 --network ship-ocr-test-20261022072743-70502 -p 127.0.0.1:61316:8001 -e LOCAL_OCR_LANGUAGE=eng ship_invoice_agent-local-ocr
+curl --fail http://127.0.0.1:61316/health
+SHIP_REPO=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent SHIP_RESULT_DIR=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/20261022T072743Z-local-ocr SHIP_OCR_PORT=61316 SHIP_FILE_SERVICE_NAME=ship-files-test-20261022072743-70502 .venv/bin/python /Users/jeremyyang/Documents/Codex/2026-10-22/task/local_ocr_harness.py
+docker logs --timestamps ship-files-test-20261022072743-70502
+docker logs --timestamps ship-ocr-test-20261022072743-70502
+docker stop ship-ocr-test-20261022072743-70502 ship-files-test-20261022072743-70502
+docker network rm ship-ocr-test-20261022072743-70502

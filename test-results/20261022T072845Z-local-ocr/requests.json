@@ -1,0 +1,152 @@
+[
+  {
+    "started_at": "2026-10-22T07:28:48.453440+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 4.00253,
+    "finished_at": "2026-10-22T07:28:52.456050+00:00"
+  },
+  {
+    "started_at": "2026-10-22T07:28:52.459977+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 0.610455,
+    "finished_at": "2026-10-22T07:28:53.070451+00:00"
+  },
+  {
+    "started_at": "2026-10-22T07:28:53.110007+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/InsertPic_C25B.jpg",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/InsertPic_C25B.jpg",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 0.323747,
+    "finished_at": "2026-10-22T07:28:53.433773+00:00"
+  },
+  {
+    "started_at": "2026-10-22T07:28:53.436905+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/4055331281 MBL.pdf",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/4055331281%C2%A0MBL.pdf",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 1.056014,
+    "finished_at": "2026-10-22T07:28:54.492947+00:00"
+  },
+  {
+    "started_at": "2026-10-22T07:28:54.496729+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/.runtime/files/attachments/fad3298ec8fd/4055331281 HBL.pdf",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/4055331281%C2%A0HBL.pdf",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 0.856841,
+    "finished_at": "2026-10-22T07:28:55.353587+00:00"
+  },
+  {
+    "started_at": "2026-10-22T07:28:55.359976+00:00",
+    "endpoint": "http://127.0.0.1:61522/process",
+    "source": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png",
+    "payload": {
+      "file": "http://ship-files-test-20261022072845-70634:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png",
+      "task": "orderChange",
+      "callBack": "",
+      "taskType": ""
+    },
+    "timeout_seconds": [
+      10,
+      300
+    ],
+    "status": "success",
+    "response_top_level_type": "dict",
+    "response_keys": [
+      "full_text",
+      "pages",
+      "success",
+      "task"
+    ],
+    "elapsed_seconds": 0.209857,
+    "finished_at": "2026-10-22T07:28:55.569846+00:00"
+  }
+]

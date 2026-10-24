@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf",
+    "name": "PDF示例账单1.pdf",
+    "size_bytes": 151278,
+    "sha256": "7f0681695a278ea49dc50090bb1bc476b3c73bbc4a3d4862bc31a013d2ad045d"
+  },
+  {
+    "path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf",
+    "name": "PDF 示例账单2.pdf",
+    "size_bytes": 77705,
+    "sha256": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba"
+  },
+  {
+    "path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml",
+    "name": "sample-pre-alert.eml",
+    "size_bytes": 1479995,
+    "sha256": "fad3298ec8fd3da0e092dfbed0a313be28170073f1e01125195a5dfe9b886e58"
+  },
+  {
+    "path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png",
+    "name": "图片示例.png",
+    "size_bytes": 91964,
+    "sha256": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93"
+  }
+]
