@@ -88,6 +88,10 @@ Provider SDK 的内部重试被关闭，避免重试次数相乘。两次调用�
 当前文档输出 `PENDING_REVIEW`，并继续处理同一输入中的其他附件。三个参数可通过
 `LLM_TIMEOUT_SECONDS`、`LLM_TOTAL_TIME_BUDGET_SECONDS` 和 `LLM_MAX_RETRIES` 调整。
 
+Qwen 的思考模式默认显式关闭：`LLM_ENABLE_THINKING=false`。在 Qwen 的
+OpenAI-compatible 调用中，该值通过 `extra_body.enable_thinking` 发送；其他模型厂商不会收到
+这个非标准参数。`ship-invoice-agent check-model` 的输出会显示当前 `enable_thinking` 配置。
+
 ## 启动本地 OCR
 
 ```bash

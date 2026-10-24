@@ -63,6 +63,7 @@ def check_model_command(settings: Settings) -> int:
             {
                 "provider": settings.llm_provider,
                 "model": settings.llm_model_name,
+                "enable_thinking": settings.llm_enable_thinking,
                 "connection": "ok",
                 "json_output": "ok",
             },

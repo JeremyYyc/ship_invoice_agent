@@ -17,8 +17,18 @@ def create_chat_model(settings: Settings) -> BaseChatModel:
         "max_tokens": settings.llm_max_tokens,
     }
     if settings.llm_protocol == "openai_compatible":
+        provider_options = {}
+        is_qwen = (
+            settings.llm_provider.casefold() == "qwen"
+            or settings.llm_model_name.casefold().startswith("qwen")
+        )
+        if is_qwen:
+            provider_options["extra_body"] = {
+                "enable_thinking": settings.llm_enable_thinking
+            }
         return ChatOpenAI(
             **common,
+            **provider_options,
             api_key=settings.llm_api_key,
             base_url=settings.llm_base_url,
         )
