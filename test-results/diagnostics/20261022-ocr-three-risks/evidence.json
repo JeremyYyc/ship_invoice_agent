@@ -1,0 +1,42 @@
+{
+  "source_run": "test-results/20261022T072845Z-local-ocr",
+  "llm_called": false,
+  "ocr_rerun": false,
+  "issues": {
+    "disclaimer_amounts": {
+      "status": "confirmed_in_input_downstream_misextract_not_tested",
+      "raw_document_occurrences": {
+        "$25.00": 9,
+        "$1100": 3,
+        "$150": 3,
+        "USD 245.0000": 6
+      },
+      "pixel_classification": {
+        "$25.00": "GENERAL NOTICE policy example",
+        "$1100": "PLEASE NOTE misuse fee term",
+        "$150": "PLEASE NOTE hourly wait-time term",
+        "USD 245.0000": "actual charge row and total"
+      }
+    },
+    "identifier_o0": {
+      "status": "confirmed_at_ocr_layer_downstream_not_tested",
+      "pixel_value": "OOLU4055331281",
+      "ocr_value": "00LU4055331281",
+      "independent_email_value": "OOLU4055331281"
+    },
+    "inline_jpeg": {
+      "status": "confirmed_non_business_inline_image_routed_to_ocr",
+      "filename": "InsertPic_C25B.jpg",
+      "mime_type": "image/jpeg",
+      "disposition": null,
+      "content_id": "<_Foxmail.1@f5b89262-bb91-ec4c-0ac5-ad9f8b5ccf7a>",
+      "html_cid_referenced": true,
+      "pixel_dimensions": [1500, 770],
+      "display_dimensions": [450, 231],
+      "bytes": 794853,
+      "ocr_text_chars": 40,
+      "business_document": false,
+      "classification": "email marketing/signature banner"
+    }
+  }
+}
