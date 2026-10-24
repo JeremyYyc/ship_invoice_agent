@@ -11,7 +11,9 @@ def create_chat_model(settings: Settings) -> BaseChatModel:
         "model": settings.llm_model_name,
         "temperature": settings.llm_temperature,
         "timeout": settings.llm_timeout_seconds,
-        "max_retries": settings.llm_max_retries,
+        # Retry policy is owned by InvoiceExtractor so one configured retry cannot
+        # multiply with a provider SDK's own retry loop.
+        "max_retries": 0,
         "max_tokens": settings.llm_max_tokens,
     }
     if settings.llm_protocol == "openai_compatible":

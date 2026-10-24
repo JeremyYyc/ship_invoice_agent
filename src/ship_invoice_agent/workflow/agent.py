@@ -6,6 +6,7 @@ from typing import Protocol
 
 from ship_invoice_agent.accounting import classify_posting, resolve_accounting_entity
 from ship_invoice_agent.config import Settings
+from ship_invoice_agent.exceptions import ExtractionTimeoutError
 from ship_invoice_agent.matching import BillMatcher, JsonBillRepository
 from ship_invoice_agent.models import (
     AuditTrail,
@@ -62,7 +63,19 @@ class InvoiceAgent:
         should_apply = apply if apply is not None else self.settings.apply_bill_changes
         operations: list[BillOperation] = []
         for raw in self.router.parse(path, file_url=file_url):
-            extracted = self.normalizer.normalize_document(self.extractor.extract(raw))
+            try:
+                extracted = self.normalizer.normalize_document(self.extractor.extract(raw))
+            except ExtractionTimeoutError:
+                operations.append(
+                    self._unresolved_operation(
+                        raw,
+                        ExtractedDocument(warnings=["LLM_EXTRACTION_FAILED"]),
+                        accounting_entity,
+                        ["model extraction exhausted its retry/time budget"],
+                        ["LLM_EXTRACTION_FAILED", "LLM_TIME_BUDGET_EXHAUSTED"],
+                    )
+                )
+                continue
             validation = validate_document(extracted, self.settings.currencies_path)
             posting_type, accounting_reasoning = classify_posting(extracted, accounting_entity)
             if not extracted.charges:

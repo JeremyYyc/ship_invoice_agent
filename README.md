@@ -83,6 +83,11 @@ LLM_MODEL_NAME=your-model-id
 第一版默认 `LLM_STRUCTURED_OUTPUT_MODE=prompt`，通过 JSON 指令 + Pydantic 校验获得更好的跨模型
 兼容性，不强依赖厂商原生 JSON Schema。
 
+模型调用默认采用 60 秒单次超时、每份 `RawDocument` 130 秒总预算以及一次应用层重试。
+Provider SDK 的内部重试被关闭，避免重试次数相乘。两次调用均失败或剩余预算不足时，
+当前文档输出 `PENDING_REVIEW`，并继续处理同一输入中的其他附件。三个参数可通过
+`LLM_TIMEOUT_SECONDS`、`LLM_TOTAL_TIME_BUDGET_SECONDS` 和 `LLM_MAX_RETRIES` 调整。
+
 ## 启动本地 OCR
 
 ```bash
