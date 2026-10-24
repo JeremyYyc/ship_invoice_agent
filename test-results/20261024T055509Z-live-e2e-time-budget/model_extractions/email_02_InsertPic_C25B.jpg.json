@@ -1,0 +1,31 @@
+{
+  "source_name": "InsertPic_C25B.jpg",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 14.606366,
+  "extracted": {
+    "document_type": null,
+    "reference_no": null,
+    "document_date": null,
+    "issuer": null,
+    "recipient": null,
+    "payee": null,
+    "master_bill_of_lading_no": null,
+    "house_bill_of_lading_no": null,
+    "booking_no": null,
+    "container_numbers": [],
+    "vessel": null,
+    "voyage": null,
+    "port_of_loading": null,
+    "port_of_discharge": null,
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "OCR text is garbled and does not contain identifiable invoice fields or charge lines.",
+      "No monetary charges, totals, or payment terms were found."
+    ]
+  }
+}

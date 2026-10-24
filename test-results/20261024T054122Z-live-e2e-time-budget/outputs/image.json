@@ -1,0 +1,44 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "model extraction exhausted its retry/time budget"
+      ],
+      "warnings": [
+        "LLM_EXTRACTION_FAILED",
+        "LLM_TIME_BUDGET_EXHAUSTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "source_name": "4055331281 MBL.pdf",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 89.571832,
+  "extracted": {
+    "document_type": "Master Bill of Lading",
+    "reference_no": "HZMHK331281",
+    "document_date": "2026-10-01",
+    "issuer": "Pilot Aiship Tech Co., Ltd.",
+    "recipient": "TARGETING AINC",
+    "payee": null,
+    "master_bill_of_lading_no": "HZMHK331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": "4055331281",
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": "SEASPAN HARMONY",
+    "voyage": "087E",
+    "port_of_loading": "YANTIAN, CHINA",
+    "port_of_discharge": "LONG BEACH, CA",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "OCR quality is poor; several fields are partially illegible or garbled.",
+      "Issuer name appears as 'ica Pilot Aiship Tech co., Ltd.' and was normalized to 'Pilot Aiship Tech Co., Ltd.' based on available context.",
+      "The freight/charges section is heavily garbled and no legible charge lines, amounts, or currency values could be extracted.",
+      "The document contains both 'PREPAID' and 'COLLECT' in the freight/charges area, creating an ambiguous or contradictory payment term indication.",
+      "The line 'COLLECT YANTIAN, 2026-10-01' appears near the shipped on board date field and is ambiguous; the issue date 'YANTIAN, 2026-10-01' was used for document_date.",
+      "Container line '40 HQ/TIIU8975975 /OOLLHV6833/818CTNS/10715.000KGS/68.000CBM (1*40HQ)' was interpreted as container number TIIU8975975 and seal number OOLLHV6833."
+    ]
+  }
+}
