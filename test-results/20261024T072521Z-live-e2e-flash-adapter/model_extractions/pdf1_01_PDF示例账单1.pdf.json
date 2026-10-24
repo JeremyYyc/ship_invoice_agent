@@ -1,0 +1,46 @@
+{
+  "source_name": "PDF示例账单1.pdf",
+  "parent_source": null,
+  "elapsed_seconds": 6.918834,
+  "extracted": {
+    "document_type": "Arrival Notice",
+    "reference_no": null,
+    "document_date": "10/19/2026",
+    "issuer": "CMA CGM",
+    "recipient": "NEPTUNE SHIPPING LIMITED",
+    "payee": "CMA CGM (AMERICA) LLC",
+    "master_bill_of_lading_no": "CMDUCHN4053601",
+    "house_bill_of_lading_no": null,
+    "booking_no": null,
+    "container_numbers": [
+      "SAPU2040689"
+    ],
+    "vessel": "CMA CGM LYRA",
+    "voyage": "MTE070W19",
+    "port_of_loading": "SHANGHAI",
+    "port_of_discharge": "LOS ANGELES, CA",
+    "eta": "10/26/2026",
+    "etd": null,
+    "subtotal": "245.0",
+    "tax": null,
+    "total": "245.0",
+    "charges": [
+      {
+        "original_charge_item": "On Carriage Additional - US Em",
+        "charge_item": "On Carriage Additional - US Em",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "245.0",
+        "currency": "USD",
+        "payment_term": "CC",
+        "source_text": "SCAC BL# BILL CHARGES CUR AMOUNT TYPE CMDU CHN4053601 Waybill OCA17 On Carriage Additional - US Em USD 245.0000 C",
+        "source_page": 1,
+        "confidence": 0.95
+      }
+    ],
+    "warnings": [
+      "The document is an Arrival Notice, not a formal invoice, but contains a 'Please Pay freight' section with specific charges.",
+      "Payment term 'C' in the charge table is interpreted as Collect based on standard shipping abbreviations and context of arrival notice."
+    ]
+  }
+}

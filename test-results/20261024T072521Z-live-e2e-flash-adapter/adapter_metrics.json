@@ -1,0 +1,43 @@
+{
+  "adapter": "LocalOCRAdapter",
+  "raw_ocr_json_chars": 50025,
+  "canonical_ocr_chars": 15968,
+  "character_reduction": 0.6808,
+  "documents": [
+    {
+      "source_name": "PDF 示例账单2.pdf",
+      "source_type": "pdf",
+      "content_chars": 1346
+    },
+    {
+      "source_name": "PDF示例账单1.pdf",
+      "source_type": "pdf",
+      "content_chars": 8848
+    },
+    {
+      "source_name": "sample-pre-alert.eml",
+      "source_type": "eml",
+      "content_chars": 767
+    },
+    {
+      "source_name": "InsertPic_C25B.jpg",
+      "source_type": "jpg",
+      "content_chars": 49
+    },
+    {
+      "source_name": "4055331281 MBL.pdf",
+      "source_type": "pdf",
+      "content_chars": 3114
+    },
+    {
+      "source_name": "4055331281 HBL.pdf",
+      "source_type": "pdf",
+      "content_chars": 1897
+    },
+    {
+      "source_name": "图片示例.png",
+      "source_type": "png",
+      "content_chars": 714
+    }
+  ]
+}

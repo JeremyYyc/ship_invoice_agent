@@ -1,0 +1,34 @@
+{
+  "source_name": "4055331281 MBL.pdf",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 5.770986,
+  "extracted": {
+    "document_type": "Master Bill of Lading",
+    "reference_no": null,
+    "document_date": "2026-10-01",
+    "issuer": "Pilot Aiship Tech co., Ltd.",
+    "recipient": "TARGETING AINC",
+    "payee": null,
+    "master_bill_of_lading_no": "4055331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": "HZMHK331281",
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": "SEASPAN HARMONY",
+    "voyage": "087E",
+    "port_of_loading": "YANTIAN,CHINA",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "OCR quality is low; several fields contain garbled text (e.g., 'ea FR (Lis) MZARARA', 'HpRUELE Kak Ge ROR').",
+      "No explicit freight charges or fee lines were found in the provided text, only standard B/L terms and container details.",
+      "Date format '2026-10-01' suggests a future date relative to typical current contexts, but extracted as-is."
+    ]
+  }
+}

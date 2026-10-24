@@ -1,0 +1,17 @@
+{
+  "llm_protocol": "openai_compatible",
+  "llm_provider": "qwen",
+  "llm_model_name": "qwen3.8-flash",
+  "llm_base_host": "dashscope.aliyuncs.com",
+  "llm_api_key_configured": true,
+  "llm_structured_output_mode": "prompt",
+  "ocr_api_url": "http://127.0.0.1:18001/process",
+  "local_file_base_url": "http://file-server:8081",
+  "apply_bill_changes": false,
+  "llm_enable_thinking": false,
+  "llm_timeout_seconds": 115,
+  "llm_total_time_budget_seconds": 235,
+  "llm_max_retries": 1,
+  "provider_sdk_retries": 0,
+  "ocr_adapter": "LocalOCRAdapter"
+}
