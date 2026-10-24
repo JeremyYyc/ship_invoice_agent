@@ -1,0 +1,13 @@
+[
+  {
+    "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png",
+    "source_name": "图片示例.png",
+    "source_type": "png",
+    "content": "[PAGE 1]\nINVOICE\n\n(ca,\n\nSatoh {ASAGENTS FOR ZN TEGRTED SHIPPING SERVICES LTD -\"4_\nch Ry a\nZIM er GE\nce ms \"A paynarts nas bo ed\n\n‘61 SAVOY DR. STE 1022\n\n‘90047 HOUSTO ‘4425 Zim Way\nfear \\Viginia Beach, Va 23462-3462\nayer: USIAHALLAM usa\nORIGINAL\nDEBIT INVOICE: _ORFR1G18731_UsMHALLAM vce te 10032025 SAPATE\nMSC ELODIE 1070972025\nRE: MSCELODIE VOY 2\nAstves:\nFrom: INGO (23)\nTo: PORT EVERGLADES (FL)\nBooking Number: ZIMUNGBI312144\nan: ZimuNGa1312144\nPlace of payment: usoRF\n‘Your tet:\nPayment Due: PAY IMMEDIATELY\nPlace of receipt of goods:\nFinal destination\n‘Original\nBase Rate Cur Amount ROE. Cur Amount\nWHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500\nwmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90\nusd 2690",
+    "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+    "parent_source": null,
+    "metadata": {
+      "file_url": "http://file-server:8081/%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png"
+    }
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "WHARFAGEADWINSTRATIONFEE",
+      "source_text": "WHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.6,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "model charge name mapped to Wharfage Administration Fee"
+      ],
+      "warnings": [
+        "'wmnnrace OTT' is likely an OCR error for 'WHARFAGE' or similar fee name.",
+        "Amounts in the source text are ambiguous due to formatting errors (e.g., '500' vs '5.00', '2190' vs '21.90'). Extracted amounts assume decimal placement based on context and total line 'usd 2690' which likely sums to 26.90.",
+        "Date '10032025' in header is likely 10/03/2025 or March 10, 2025.",
+        "LOW_EXTRACTION_CONFIDENCE",
+        "OCR quality is poor; 'WHARFAGEADWINSTRATIONFEE' appears to be a concatenation of 'WHARFAGE ADMINISTRATION FEE'.",
+        "Voyage number '1070972025' looks like a date or booking reference rather than a standard voyage code."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "wmnnrace OTT",
+      "source_text": "wmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.5,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "no configured charge alias matched; preserved extracted name"
+      ],
+      "warnings": [
+        "'wmnnrace OTT' is likely an OCR error for 'WHARFAGE' or similar fee name.",
+        "Amounts in the source text are ambiguous due to formatting errors (e.g., '500' vs '5.00', '2190' vs '21.90'). Extracted amounts assume decimal placement based on context and total line 'usd 2690' which likely sums to 26.90.",
+        "Date '10032025' in header is likely 10/03/2025 or March 10, 2025.",
+        "LOW_EXTRACTION_CONFIDENCE",
+        "OCR quality is poor; 'WHARFAGEADWINSTRATIONFEE' appears to be a concatenation of 'WHARFAGE ADMINISTRATION FEE'.",
+        "UNKNOWN_CHARGE_ALIAS",
+        "Voyage number '1070972025' looks like a date or booking reference rather than a standard voyage code."
+      ]
+    }
+  }
+]

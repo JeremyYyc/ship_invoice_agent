@@ -1,0 +1,34 @@
+{
+  "source_name": "4055331281 HBL.pdf",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 7.827807,
+  "extracted": {
+    "document_type": "House Bill of Lading",
+    "reference_no": "029018",
+    "document_date": "2026-10-15",
+    "issuer": "SUN TRACK EXPRESS (CHINA) CO LTD",
+    "recipient": "VASINGER LLC",
+    "payee": null,
+    "master_bill_of_lading_no": null,
+    "house_bill_of_lading_no": "SSZSE26093128",
+    "booking_no": null,
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": "SEASPAN HARMONY",
+    "voyage": "087E",
+    "port_of_loading": "YANTIAN",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "OCR errors detected in header: 'il ARS (Lis) MBAR APRA' likely refers to a carrier or agent name but is illegible.",
+      "No specific freight charges or fee amounts are listed in the document; only 'FREIGHT PREPAID' status is indicated.",
+      "Container seal number 'OOLLHV6833' and count '818 CTNS' extracted from container details line."
+    ]
+  }
+}

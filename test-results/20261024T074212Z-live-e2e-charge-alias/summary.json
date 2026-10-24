@@ -1,0 +1,25 @@
+{
+  "started_at": "2026-10-24T07:42:33.055719+00:00",
+  "finished_at": "2026-10-24T07:43:51.359147+00:00",
+  "elapsed_seconds": 78.302895,
+  "story": "local source -> local OCR HTTP -> RawDocument -> configured live LLM -> deterministic reconciliation -> BillOperation JSON",
+  "model_check": "success",
+  "configured_cases": 4,
+  "completed_cases": 4,
+  "successful_cases": 4,
+  "failed_cases": 0,
+  "ocr_request_count": 6,
+  "model_extraction_count": 7,
+  "operation_count": 10,
+  "pdf2_golden_evaluation": {
+    "cases": 1,
+    "expected_charges": 3,
+    "charge_recall": 1.0,
+    "amount_accuracy": 1.0,
+    "currency_accuracy": 1.0,
+    "reference_accuracy": 1.0,
+    "invalid_json": 0
+  },
+  "apply_used": false,
+  "existing_bills_modified": false
+}

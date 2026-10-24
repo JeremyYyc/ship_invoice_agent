@@ -1,0 +1,131 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 65.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "source_file": "PDF 示例账单2.pdf",
+      "source_page": 1,
+      "original_charge_item": "HANDLING CHARGE",
+      "source_text": "HANDLING CHARGE - 65.00 1.00 c 65.00",
+      "file_hash": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee",
+        "original_charge_item alias mapped deterministically to Handling Charge"
+      ],
+      "warnings": [
+        "Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name or quantity.",
+        "OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": "Additional Detention Free Time Charge",
+      "amount": 1310.4,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "source_file": "PDF 示例账单2.pdf",
+      "source_page": 1,
+      "original_charge_item": "ADD'L DETENTION FREE TIME CHARGE",
+      "source_text": "4 ADD'L DETENTION FREE TIME CHARGE - 1,310.40 1.00 c 1,310.40",
+      "file_hash": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee",
+        "source_text alias mapped deterministically to Additional Detention Free Time Charge"
+      ],
+      "warnings": [
+        "Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name or quantity.",
+        "OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 35.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "source_file": "PDF 示例账单2.pdf",
+      "source_page": 1,
+      "original_charge_item": "HANDLING CHARGE",
+      "source_text": "HANDLING CHARGE - 35.00 1.00 c 35.00",
+      "file_hash": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee",
+        "original_charge_item alias mapped deterministically to Handling Charge"
+      ],
+      "warnings": [
+        "Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name or quantity.",
+        "OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  }
+]
