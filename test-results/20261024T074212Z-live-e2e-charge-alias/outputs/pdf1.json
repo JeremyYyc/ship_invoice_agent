@@ -1,0 +1,47 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Arrival Notice",
+      "reference_no": null,
+      "document_date": "2026-10-19"
+    },
+    "transaction_party": {
+      "issuer": "CMA CGM",
+      "recipient": "Neptune Shipping Limited"
+    },
+    "charge_details": {
+      "charge_item": "On Carriage Additional - US Em",
+      "amount": 245.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Neptune Shipping Limited",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "PDF示例账单1.pdf",
+      "source_page": 1,
+      "original_charge_item": "On Carriage Additional - US Em",
+      "source_text": "SCAC BL# BILL CHARGES CUR AMOUNT TYPE CMDU CHN4053601 Waybill OCA17 On Carriage Additional - US Em USD 245.0000 C",
+      "file_hash": "7f0681695a278ea49dc50090bb1bc476b3c73bbc4a3d4862bc31a013d2ad045d",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "no configured charge alias matched; preserved extracted name"
+      ],
+      "warnings": [
+        "Payment term 'C' interpreted as Collect based on standard freight notation.",
+        "The document contains a disclaimer regarding a $1100 misuse fee for SOC containers, but this is not an active charge line.",
+        "The document contains a disclaimer regarding a $25.00 service fee for cancelled I.T., but this is not an active charge line in the invoice summary.",
+        "UNKNOWN_CHARGE_ALIAS"
+      ]
+    }
+  }
+]

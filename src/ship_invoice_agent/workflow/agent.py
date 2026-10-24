@@ -43,7 +43,9 @@ class InvoiceAgent:
         self.extractor = extractor
         self.repository = repository
         self.normalizer = NormalizationService(
-            settings.charge_aliases_path, settings.party_aliases_path
+            settings.charge_aliases_path,
+            settings.party_aliases_path,
+            settings.charge_alias_conflict_policy,
         )
         self._seen_fingerprints: set[str] = set()
 
@@ -64,7 +66,10 @@ class InvoiceAgent:
         operations: list[BillOperation] = []
         for raw in self.router.parse(path, file_url=file_url):
             try:
-                extracted = self.normalizer.normalize_document(self.extractor.extract(raw))
+                normalization = self.normalizer.normalize_document_with_audit(
+                    self.extractor.extract(raw)
+                )
+                extracted = normalization.document
             except ExtractionTimeoutError:
                 operations.append(
                     self._unresolved_operation(
@@ -90,9 +95,14 @@ class InvoiceAgent:
                 )
                 continue
             matcher = BillMatcher(self.repository.all())
-            for charge in extracted.charges:
+            for index, charge in enumerate(extracted.charges):
+                alias_resolution = normalization.charge_resolutions[index]
                 decision = matcher.decide(extracted, charge)
-                warnings = list(extracted.warnings) + validation.warnings
+                warnings = (
+                    list(extracted.warnings)
+                    + validation.warnings
+                    + alias_resolution.warnings
+                )
                 fingerprint = self._fingerprint(extracted, charge)
                 if fingerprint in self._seen_fingerprints:
                     decision.operation = Operation.NO_CHANGE
@@ -102,6 +112,7 @@ class InvoiceAgent:
                     self._seen_fingerprints.add(fingerprint)
                 if (
                     validation.requires_review
+                    or alias_resolution.requires_review
                     or charge.confidence < self.settings.min_auto_accept_confidence
                     or posting_type is None
                 ):
@@ -145,7 +156,11 @@ class InvoiceAgent:
                         changed_fields=decision.changed_fields,
                         conflicts=decision.conflicts,
                         confidence=charge.confidence,
-                        ai_reasoning=decision.reasoning + accounting_reasoning,
+                        ai_reasoning=(
+                            decision.reasoning
+                            + accounting_reasoning
+                            + alias_resolution.reasoning
+                        ),
                         warnings=sorted(set(warnings)),
                     ),
                 )

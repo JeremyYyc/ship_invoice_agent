@@ -1,0 +1,20 @@
+{
+  "expected_charge_item": "Handling Charge",
+  "actual_charge_item": "Handling Charge",
+  "actual_operation": "PENDING_REVIEW",
+  "live_model_charge_item": "Handling Charge",
+  "live_model_conflicted": false,
+  "model_conflict_recorded": false,
+  "model_override_recorded": false,
+  "historical_conflict_case": {
+    "model_charge_item": "Terminal Handling Charge (THC)",
+    "final_charge_item": "Handling Charge",
+    "conflict": true,
+    "requires_review": true,
+    "warnings": [
+      "MODEL_CHARGE_NAME_CONFLICT",
+      "MODEL_CHARGE_NAME_OVERRIDDEN"
+    ]
+  },
+  "passed": true
+}

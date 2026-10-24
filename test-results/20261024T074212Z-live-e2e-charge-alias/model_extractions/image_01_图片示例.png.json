@@ -1,0 +1,59 @@
+{
+  "source_name": "图片示例.png",
+  "parent_source": null,
+  "elapsed_seconds": 13.813488,
+  "extracted": {
+    "document_type": "INVOICE",
+    "reference_no": "ORFR1G18731",
+    "document_date": null,
+    "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+    "recipient": "USIAHALLAM",
+    "payee": null,
+    "master_bill_of_lading_no": null,
+    "house_bill_of_lading_no": null,
+    "booking_no": "ZIMUNGBI312144",
+    "container_numbers": [],
+    "vessel": "MSC ELODIE",
+    "voyage": "1070972025",
+    "port_of_loading": "INGO (23)",
+    "port_of_discharge": "PORT EVERGLADES (FL)",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [
+      {
+        "original_charge_item": "WHARFAGEADWINSTRATIONFEE",
+        "charge_item": "Wharfage Administration Fee",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "5.0",
+        "currency": "USD",
+        "payment_term": null,
+        "source_text": "WHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500",
+        "source_page": 1,
+        "confidence": 0.6
+      },
+      {
+        "original_charge_item": "wmnnrace OTT",
+        "charge_item": "Wharfage",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "21.9",
+        "currency": "USD",
+        "payment_term": null,
+        "source_text": "wmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90",
+        "source_page": 1,
+        "confidence": 0.5
+      }
+    ],
+    "warnings": [
+      "OCR quality is poor; 'WHARFAGEADWINSTRATIONFEE' appears to be a concatenation of 'WHARFAGE ADMINISTRATION FEE'.",
+      "'wmnnrace OTT' is likely an OCR error for 'WHARFAGE' or similar fee name.",
+      "Amounts in the source text are ambiguous due to formatting errors (e.g., '500' vs '5.00', '2190' vs '21.90'). Extracted amounts assume decimal placement based on context and total line 'usd 2690' which likely sums to 26.90.",
+      "Voyage number '1070972025' looks like a date or booking reference rather than a standard voyage code.",
+      "Date '10032025' in header is likely 10/03/2025 or March 10, 2025."
+    ]
+  }
+}

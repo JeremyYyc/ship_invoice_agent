@@ -131,6 +131,12 @@ curl http://127.0.0.1:8001/health
 `full_text`。因此不会同时发送 `pages[].text`、`pages[].lines` 和 `full_text` 三份重复内容。
 无法识别的企业 OCR Schema 暂时回退为删除二进制字段后的原始 JSON，后续可增加对应 Adapter。
 
+费用名称标准化采用原始证据优先策略。`original_charge_item` 或 `source_text` 中命中的
+`data/charge_aliases.json` 别名优先于模型生成的 `charge_item`。如果两者映射到不同标准费用，
+最终使用确定性别名映射，并记录 `MODEL_CHARGE_NAME_CONFLICT` 与
+`MODEL_CHARGE_NAME_OVERRIDDEN`。默认 `CHARGE_ALIAS_CONFLICT_POLICY=review`，冲突记录进入
+`PENDING_REVIEW`；别名表本身存在一对多冲突时，应用启动即失败。
+
 企业环境中只替换 `OCR_API_URL` 和每个文件的 `file_url`。
 
 ## 使用
