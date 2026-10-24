@@ -1,0 +1,64 @@
+[
+  {
+    "id": "pdf1",
+    "input": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf",
+    "accounting_entity": "Neptune Shipping Limited",
+    "status": "success",
+    "elapsed_seconds": 110.515271,
+    "operation_count": 1,
+    "operations": [
+      "CREATE"
+    ],
+    "output": "outputs/pdf1.json",
+    "ocr_request_count": 1,
+    "model_extraction_count": 1
+  },
+  {
+    "id": "pdf2",
+    "input": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf",
+    "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+    "status": "success",
+    "elapsed_seconds": 94.250957,
+    "operation_count": 3,
+    "operations": [
+      "PENDING_REVIEW",
+      "PENDING_REVIEW",
+      "PENDING_REVIEW"
+    ],
+    "output": "outputs/pdf2.json",
+    "ocr_request_count": 1,
+    "model_extraction_count": 1
+  },
+  {
+    "id": "email",
+    "input": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml",
+    "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+    "status": "success",
+    "elapsed_seconds": 618.432428,
+    "operation_count": 4,
+    "operations": [
+      "PENDING_REVIEW",
+      "PENDING_REVIEW",
+      "PENDING_REVIEW",
+      "PENDING_REVIEW"
+    ],
+    "output": "outputs/email.json",
+    "ocr_request_count": 3,
+    "model_extraction_count": 4
+  },
+  {
+    "id": "image",
+    "input": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png",
+    "accounting_entity": "USIAHALLAM",
+    "status": "success",
+    "elapsed_seconds": 471.997293,
+    "operation_count": 2,
+    "operations": [
+      "PENDING_REVIEW",
+      "PENDING_REVIEW"
+    ],
+    "output": "outputs/image.json",
+    "ocr_request_count": 1,
+    "model_extraction_count": 1
+  }
+]

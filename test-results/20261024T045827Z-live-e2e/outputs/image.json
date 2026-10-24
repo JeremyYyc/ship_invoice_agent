@@ -1,0 +1,94 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "DEBIT INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": "10032025"
+    },
+    "transaction_party": {
+      "issuer": "ZIM Integrated Shipping Services Ltd",
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "WHARFAGEADWINSTRATIONFEE",
+      "source_text": "WHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.55,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee"
+      ],
+      "warnings": [
+        "'ayer: USIAHALLAM usa' was interpreted as payee information, but the exact label is unclear.",
+        "Document date '10032025' was preserved as observed because the date format is ambiguous.",
+        "LOW_EXTRACTION_CONFIDENCE",
+        "OCR text is heavily garbled; issuer, payee, and charge item names may be inaccurate.",
+        "The second charge item 'wmnnrace OTT' appears to be an OCR error and could not be confidently normalized.",
+        "Total 'usd 2690' was interpreted as USD 26.90 based on the charge line amounts."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "DEBIT INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": "10032025"
+    },
+    "transaction_party": {
+      "issuer": "ZIM Integrated Shipping Services Ltd",
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": "wmnnrace OTT",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "wmnnrace OTT",
+      "source_text": "wmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.5,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee"
+      ],
+      "warnings": [
+        "'ayer: USIAHALLAM usa' was interpreted as payee information, but the exact label is unclear.",
+        "Document date '10032025' was preserved as observed because the date format is ambiguous.",
+        "LOW_EXTRACTION_CONFIDENCE",
+        "OCR text is heavily garbled; issuer, payee, and charge item names may be inaccurate.",
+        "The second charge item 'wmnnrace OTT' appears to be an OCR error and could not be confidently normalized.",
+        "Total 'usd 2690' was interpreted as USD 26.90 based on the charge line amounts."
+      ]
+    }
+  }
+]

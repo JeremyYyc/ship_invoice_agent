@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-10-24T04:59:34.606359+00:00",
+  "python": "3.13.12 (v3.13.12:1cbe4818347, Feb  3 2026, 13:36:53) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "packages": {
+    "langchain": "1.4.6",
+    "langchain-openai": "1.7.2",
+    "pydantic": "2.14.1",
+    "requests": "2.34.2"
+  },
+  "git": {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 0,
+    "stdout": "?? test-results/\n",
+    "stderr": ""
+  },
+  "docker_compose": {
+    "command": [
+      "docker",
+      "compose",
+      "--env-file",
+      ".env",
+      "ps"
+    ],
+    "returncode": 0,
+    "stdout": "NAME                               IMAGE                          COMMAND                  SERVICE       CREATED              STATUS              PORTS\nship_invoice_agent-file-server-1   python:3.12-slim               \"python -m http.serv…\"   file-server   About a minute ago   Up About a minute   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp\nship_invoice_agent-local-ocr-1     ship_invoice_agent-local-ocr   \"uvicorn local_ocr.a…\"   local-ocr     About a minute ago   Up About a minute   0.0.0.0:18001->8001/tcp, [::]:18001->8001/tcp\n",
+    "stderr": ""
+  }
+}
