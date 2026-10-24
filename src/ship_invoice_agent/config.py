@@ -51,6 +51,7 @@ class Settings(BaseSettings):
     party_aliases_path: Path = Path("data/party_aliases.json")
     accounting_entities_path: Path = Path("data/accounting_entities.json")
     currencies_path: Path = Path("data/currencies.json")
+    charge_alias_conflict_policy: Literal["review", "override"] = "review"
 
     max_input_file_size_mb: int = 30
     max_email_attachment_count: int = 30
