@@ -1,0 +1,90 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Debit Invoice",
+      "reference_no": "ORFR1G18731USMHALLAM",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM Integrated Shipping Services Ltd",
+      "recipient": "USIAHALLAM USA"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": "PAY IMMEDIATELY"
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+      "source_text": "WHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.85,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED"
+      ],
+      "warnings": [
+        "AR_AP_UNRESOLVED",
+        "OCR quality is low; charge names and amounts contain significant noise (e.g., 'wmnnrace', 'G —-5.00').",
+        "The total amount 'usd 2690' at the bottom appears to be a formatting error for 26.90 USD, consistent with the sum of line items.",
+        "Voyage number '1070972025' may be a concatenation of voyage code and date or OCR artifact."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Debit Invoice",
+      "reference_no": "ORFR1G18731USMHALLAM",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM Integrated Shipping Services Ltd",
+      "recipient": "USIAHALLAM USA"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": "PAY IMMEDIATELY"
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "图片示例.png",
+      "source_page": 1,
+      "original_charge_item": "WHARFAGE OTT",
+      "source_text": "wmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90",
+      "file_hash": "f3ca6432d5597b7254eb805cb02e97e5633a681658fae4967daaa534e349fd93",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.85,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED"
+      ],
+      "warnings": [
+        "AR_AP_UNRESOLVED",
+        "OCR quality is low; charge names and amounts contain significant noise (e.g., 'wmnnrace', 'G —-5.00').",
+        "The total amount 'usd 2690' at the bottom appears to be a formatting error for 26.90 USD, consistent with the sum of line items.",
+        "Voyage number '1070972025' may be a concatenation of voyage code and date or OCR artifact."
+      ]
+    }
+  }
+]

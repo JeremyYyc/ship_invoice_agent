@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "compose",
+    "--env-file",
+    ".env",
+    "logs",
+    "--no-color",
+    "--tail=500",
+    "local-ocr",
+    "file-server"
+  ],
+  "returncode": 0,
+  "stdout": "file-server-1  | 172.18.0.3 - - [24/Oct/2026 04:59:38] \"GET /PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:01:28] \"GET /PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:03:03] \"GET /InsertPic_C25B.jpg HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:03:03] \"GET /4055331281%C2%A0MBL.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:03:05] \"GET /4055331281%C2%A0HBL.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:13:21] \"GET /%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:41:50] \"GET /PDF%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%951.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:44:02] \"GET /PDF%20%E7%A4%BA%E4%BE%8B%E8%B4%A6%E5%8D%952.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:46:05] \"GET /InsertPic_C25B.jpg HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:46:06] \"GET /4055331281%C2%A0MBL.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:46:07] \"GET /4055331281%C2%A0HBL.pdf HTTP/1.1\" 200 -\nfile-server-1  | 172.18.0.3 - - [24/Oct/2026 05:52:26] \"GET /%E5%9B%BE%E7%89%87%E7%A4%BA%E4%BE%8B.png HTTP/1.1\" 200 -\nlocal-ocr-1    | INFO:     Started server process [1]\nlocal-ocr-1    | INFO:     Waiting for application startup.\nlocal-ocr-1    | INFO:     Application startup complete.\nlocal-ocr-1    | INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)\nlocal-ocr-1    | INFO:     151.101.0.223:58647 - \"GET /health HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:30596 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:53689 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:28512 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:56521 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:29698 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:45370 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:47962 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:58611 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:22022 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:44785 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:31479 - \"POST /process HTTP/1.1\" 200 OK\nlocal-ocr-1    | INFO:     151.101.0.223:44979 - \"POST /process HTTP/1.1\" 200 OK\n",
+  "stderr": ""
+}

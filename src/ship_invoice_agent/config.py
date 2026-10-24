@@ -25,9 +25,11 @@ class Settings(BaseSettings):
     llm_base_url: str | None = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     llm_api_key: SecretStr | None = None
     llm_temperature: float = 0
-    llm_timeout_seconds: int = 120
-    llm_max_retries: int = 2
+    llm_timeout_seconds: int = Field(default=115, gt=0)
+    llm_total_time_budget_seconds: int = Field(default=235, gt=0)
+    llm_max_retries: int = Field(default=1, ge=0)
     llm_max_tokens: int = 8192
+    llm_enable_thinking: bool = False
     llm_structured_output_mode: Literal["prompt", "native"] = "prompt"
 
     ocr_api_url: str = "http://127.0.0.1:8001/process"

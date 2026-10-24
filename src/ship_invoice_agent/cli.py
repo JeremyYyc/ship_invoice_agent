@@ -31,6 +31,9 @@ def build_agent(settings: Settings, existing_bills: Path | None = None) -> Invoi
         llm,
         Path("prompts/extract_document.md"),
         structured_output_mode=settings.llm_structured_output_mode,
+        request_timeout_seconds=settings.llm_timeout_seconds,
+        total_time_budget_seconds=settings.llm_total_time_budget_seconds,
+        max_retries=settings.llm_max_retries,
     )
     repository = JsonBillRepository(existing_bills or settings.existing_bills_path)
     return InvoiceAgent(settings, router, extractor, repository)
@@ -60,6 +63,7 @@ def check_model_command(settings: Settings) -> int:
             {
                 "provider": settings.llm_provider,
                 "model": settings.llm_model_name,
+                "enable_thinking": settings.llm_enable_thinking,
                 "connection": "ok",
                 "json_output": "ok",
             },

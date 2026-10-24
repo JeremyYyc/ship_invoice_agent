@@ -1,0 +1,168 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "sample-pre-alert.eml",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "fad3298ec8fd3da0e092dfbed0a313be28170073f1e01125195a5dfe9b886e58",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "model extraction exhausted its retry/time budget"
+      ],
+      "warnings": [
+        "LLM_EXTRACTION_FAILED",
+        "LLM_TIME_BUDGET_EXHAUSTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "InsertPic_C25B.jpg",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "8fc7c81f49d99256c3e028a7b3f8682aa3f68be055299571e763472bb71bf3f7",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED"
+      ],
+      "warnings": [
+        "NO_CHARGES_EXTRACTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Master Bill of Lading",
+      "reference_no": "HZMHK331281",
+      "document_date": "2026-10-01"
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": "TARGETING AINC"
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "4055331281 MBL.pdf",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "e85bee3e3c663e985beb6d3f8b1ba33c2bc724376709dc00882278e06809f75a",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED"
+      ],
+      "warnings": [
+        "NO_CHARGES_EXTRACTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "4055331281 HBL.pdf",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "b577030300701c565822321b45178c6837095484795ca3061b70ab880d05f293",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "model extraction exhausted its retry/time budget"
+      ],
+      "warnings": [
+        "LLM_EXTRACTION_FAILED",
+        "LLM_TIME_BUDGET_EXHAUSTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  }
+]

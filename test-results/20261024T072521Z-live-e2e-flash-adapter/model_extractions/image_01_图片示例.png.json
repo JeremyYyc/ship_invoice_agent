@@ -1,0 +1,57 @@
+{
+  "source_name": "图片示例.png",
+  "parent_source": null,
+  "elapsed_seconds": 8.329761,
+  "extracted": {
+    "document_type": "Debit Invoice",
+    "reference_no": "ORFR1G18731_USMHALLAM",
+    "document_date": "2025-03-10",
+    "issuer": "ZIM Integrated Shipping Services Ltd",
+    "recipient": "USIAHALLAM USA",
+    "payee": null,
+    "master_bill_of_lading_no": null,
+    "house_bill_of_lading_no": null,
+    "booking_no": "ZIMUNGBI312144",
+    "container_numbers": [],
+    "vessel": "MSC ELODIE",
+    "voyage": "1070972025",
+    "port_of_loading": "INGO (23)",
+    "port_of_discharge": "PORT EVERGLADES (FL)",
+    "eta": null,
+    "etd": null,
+    "subtotal": "26.9",
+    "tax": null,
+    "total": "26.9",
+    "charges": [
+      {
+        "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+        "charge_item": "Wharfage Administration Fee",
+        "quantity": null,
+        "unit_price": "5.0",
+        "amount": "5.0",
+        "currency": "USD",
+        "payment_term": "PAY IMMEDIATELY",
+        "source_text": "WHARFAGEADWINSTRATIONFEE G —-5.00 USD ‘00 1.0000 USD 500",
+        "source_page": 1,
+        "confidence": 0.85
+      },
+      {
+        "original_charge_item": "WHARFAGE OTT",
+        "charge_item": "Wharfage",
+        "quantity": null,
+        "unit_price": "21.9",
+        "amount": "21.9",
+        "currency": "USD",
+        "payment_term": "PAY IMMEDIATELY",
+        "source_text": "wmnnrace OTT 285 uso 2190 1.9000 uSD_—_21.90",
+        "source_page": 1,
+        "confidence": 0.85
+      }
+    ],
+    "warnings": [
+      "OCR quality is low; charge names and amounts contain significant noise (e.g., 'wmnnrace', 'G —-5.00').",
+      "The total amount 'usd 2690' at the bottom appears to be a formatting error for 26.90 USD, consistent with the sum of line items.",
+      "Voyage number '1070972025' may be a concatenation of voyage code and date or OCR artifact."
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "provider": "qwen",
+  "model": "qwen3.8-27b",
+  "elapsed_seconds": 4.375367,
+  "response": {
+    "status": "ok",
+    "amount": 1.25
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "source_name": "PDF示例账单1.pdf",
+  "parent_source": null,
+  "elapsed_seconds": 104.655775,
+  "extracted": {
+    "document_type": "General Notice",
+    "reference_no": "CMDUCHN4053601",
+    "document_date": "10/19/2026",
+    "issuer": "CMA CGM",
+    "recipient": "NEPTUNE SHIPPING LIMITED",
+    "payee": null,
+    "master_bill_of_lading_no": "CHN4053601",
+    "house_bill_of_lading_no": null,
+    "booking_no": null,
+    "container_numbers": [
+      "SAPU2040689"
+    ],
+    "vessel": "CMA CGM LYRA",
+    "voyage": "MTE070W19",
+    "port_of_loading": "SHANGHAI",
+    "port_of_discharge": "LOS ANGELES, CA",
+    "eta": "10/26/2026",
+    "etd": null,
+    "subtotal": "245.0",
+    "tax": null,
+    "total": "245.0",
+    "charges": [
+      {
+        "original_charge_item": "On Carriage Additional - US Em",
+        "charge_item": "On Carriage Additional - US Em",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "245.0",
+        "currency": "USD",
+        "payment_term": "C",
+        "source_text": "CMDU CHN4053601 Waybill OCA17 On Carriage Additional - US Em USD 245.0000 C",
+        "source_page": 1,
+        "confidence": 0.9
+      }
+    ],
+    "warnings": [
+      "OCR shows '1.T.' and '|.T.' likely intended 'I.T.' (in-bond).",
+      "Charge description 'On Carriage Additional - US Em' appears truncated or OCR-garbled.",
+      "The document repeats the same notice on multiple pages; shipment and charge details are only on page 1.",
+      "Payment type code 'C' is preserved as observed; the document does not explicitly define it as collect."
+    ]
+  }
+}

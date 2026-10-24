@@ -1,0 +1,21 @@
+2026-10-24 13:55:20,720 INFO live_e2e: creating configured model provider=qwen model=qwen3.8-27b
+2026-10-24 13:55:20,720 INFO langchain_openai.chat_models._client_utils: langchain-openai detected HTTP_PROXY, HTTPS_PROXY and no explicit `http_socket_options` / `http_client` / `http_async_client` / `openai_proxy`; skipping the custom `httpx` transport so httpx's env-proxy auto-detection applies. Pass `http_socket_options=[...]` to opt back into kernel-level TCP keepalive tuning on top of the env proxy.
+2026-10-24 13:55:24,128 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 13:55:24,138 INFO live_e2e: case_start id=pdf1 input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf
+2026-10-24 13:57:22,676 WARNING ship_invoice_agent.extraction.chain: model extraction attempt failed source=PDF示例账单1.pdf attempt=1/2 error_type=OpenAITimeoutError
+2026-10-24 13:58:26,152 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 13:58:26,166 INFO live_e2e: case_success id=pdf1 operations=['CREATE']
+2026-10-24 13:58:26,168 INFO live_e2e: case_start id=pdf2 input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf
+2026-10-24 14:00:16,442 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 14:00:16,449 INFO live_e2e: case_success id=pdf2 operations=['PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW']
+2026-10-24 14:00:16,450 INFO live_e2e: case_start id=email input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml
+2026-10-24 14:01:39,398 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 14:01:54,013 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 14:03:23,578 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 14:05:18,604 WARNING ship_invoice_agent.extraction.chain: model extraction attempt failed source=4055331281 HBL.pdf attempt=1/2 error_type=OpenAITimeoutError
+2026-10-24 14:07:15,087 WARNING ship_invoice_agent.extraction.chain: model extraction attempt failed source=4055331281 HBL.pdf attempt=2/2 error_type=OpenAITimeoutError
+2026-10-24 14:07:15,091 INFO live_e2e: case_success id=email operations=['PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW']
+2026-10-24 14:07:15,092 INFO live_e2e: case_start id=image input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png
+2026-10-24 14:09:12,202 WARNING ship_invoice_agent.extraction.chain: model extraction attempt failed source=图片示例.png attempt=1/2 error_type=OpenAITimeoutError
+2026-10-24 14:11:08,859 WARNING ship_invoice_agent.extraction.chain: model extraction attempt failed source=图片示例.png attempt=2/2 error_type=OpenAITimeoutError
+2026-10-24 14:11:08,866 INFO live_e2e: case_success id=image operations=['PENDING_REVIEW']

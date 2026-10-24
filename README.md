@@ -83,6 +83,15 @@ LLM_MODEL_NAME=your-model-id
 第一版默认 `LLM_STRUCTURED_OUTPUT_MODE=prompt`，通过 JSON 指令 + Pydantic 校验获得更好的跨模型
 兼容性，不强依赖厂商原生 JSON Schema。
 
+模型调用默认采用 115 秒单次超时、每份 `RawDocument` 235 秒总预算以及一次应用层重试。
+Provider SDK 的内部重试被关闭，避免重试次数相乘。两次调用均失败或剩余预算不足时，
+当前文档输出 `PENDING_REVIEW`，并继续处理同一输入中的其他附件。三个参数可通过
+`LLM_TIMEOUT_SECONDS`、`LLM_TOTAL_TIME_BUDGET_SECONDS` 和 `LLM_MAX_RETRIES` 调整。
+
+Qwen 的思考模式默认显式关闭：`LLM_ENABLE_THINKING=false`。在 Qwen 的
+OpenAI-compatible 调用中，该值通过 `extra_body.enable_thinking` 发送；其他模型厂商不会收到
+这个非标准参数。`ship-invoice-agent check-model` 的输出会显示当前 `enable_thinking` 配置。
+
 ## 启动本地 OCR
 
 ```bash
@@ -116,6 +125,11 @@ curl http://127.0.0.1:8001/health
   "taskType": ""
 }
 ```
+
+本地 OCR 响应进入 LLM 前会经过 `LocalOCRAdapter`：优先保留带 `[PAGE n]`
+标记的 `pages[].text`；页面文本缺失时使用该页 `lines`，全部页面内容缺失时再回退到
+`full_text`。因此不会同时发送 `pages[].text`、`pages[].lines` 和 `full_text` 三份重复内容。
+无法识别的企业 OCR Schema 暂时回退为删除二进制字段后的原始 JSON，后续可增加对应 Adapter。
 
 企业环境中只替换 `OCR_API_URL` 和每个文件的 `file_url`。
 

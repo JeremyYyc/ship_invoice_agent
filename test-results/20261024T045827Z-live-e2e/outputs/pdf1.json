@@ -1,0 +1,46 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "General Notice",
+      "reference_no": "CMDUCHN4053601",
+      "document_date": "10/19/2026"
+    },
+    "transaction_party": {
+      "issuer": "CMA CGM",
+      "recipient": "Neptune Shipping Limited"
+    },
+    "charge_details": {
+      "charge_item": "On Carriage Additional - US Em",
+      "amount": 245.0,
+      "currency": "USD",
+      "payment_term": "C"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Neptune Shipping Limited",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "PDF示例账单1.pdf",
+      "source_page": 1,
+      "original_charge_item": "On Carriage Additional - US Em",
+      "source_text": "CMDU CHN4053601 Waybill OCA17 On Carriage Additional - US Em USD 245.0000 C",
+      "file_hash": "7f0681695a278ea49dc50090bb1bc476b3c73bbc4a3d4862bc31a013d2ad045d",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.9,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient"
+      ],
+      "warnings": [
+        "Charge description 'On Carriage Additional - US Em' appears truncated or OCR-garbled.",
+        "OCR shows '1.T.' and '|.T.' likely intended 'I.T.' (in-bond).",
+        "Payment type code 'C' is preserved as observed; the document does not explicitly define it as collect.",
+        "The document repeats the same notice on multiple pages; shipment and charge details are only on page 1."
+      ]
+    }
+  }
+]

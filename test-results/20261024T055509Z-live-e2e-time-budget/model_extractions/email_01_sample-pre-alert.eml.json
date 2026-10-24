@@ -1,0 +1,49 @@
+{
+  "source_name": "sample-pre-alert.eml",
+  "parent_source": null,
+  "elapsed_seconds": 80.598325,
+  "extracted": {
+    "document_type": "PRE-ALERT",
+    "reference_no": "SSZSE26093128",
+    "document_date": "2026-10-20",
+    "issuer": "luka@pltplt.com",
+    "recipient": "LI",
+    "payee": null,
+    "master_bill_of_lading_no": "OOLU4055331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": null,
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": null,
+    "voyage": null,
+    "port_of_loading": "YANTIAN",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": "2026-10-30",
+    "etd": "2026-10-15",
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [
+      {
+        "original_charge_item": "SHA pay TAR：H/C",
+        "charge_item": "SHA pay TAR: H/C",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "50",
+        "currency": "USD",
+        "payment_term": null,
+        "source_text": "SHA pay TAR：H/C $50",
+        "source_page": null,
+        "confidence": 0.65
+      }
+    ],
+    "warnings": [
+      "Source is a pre-alert email rather than a formal invoice; subtotal, tax, and total are not provided.",
+      "The line 'SHA pay TAR：H/C $50' is ambiguous and was treated as a charge.",
+      "No explicit HBL number is present despite references to HBL.",
+      "'SSZSE26093128' was interpreted as reference_no; it may be a booking or shipment reference.",
+      "AMS NO. GSDRHZMHK331281 has no corresponding schema field."
+    ]
+  }
+}

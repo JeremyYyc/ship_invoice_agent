@@ -1,0 +1,9 @@
+{
+  "cases": 1,
+  "expected_charges": 3,
+  "charge_recall": 1.0,
+  "amount_accuracy": 1.0,
+  "currency_accuracy": 1.0,
+  "reference_accuracy": 1.0,
+  "invalid_json": 0
+}

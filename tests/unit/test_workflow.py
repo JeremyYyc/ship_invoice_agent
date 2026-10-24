@@ -2,6 +2,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from ship_invoice_agent.config import Settings
+from ship_invoice_agent.exceptions import ExtractionTimeoutError
 from ship_invoice_agent.matching import JsonBillRepository
 from ship_invoice_agent.models import ExtractedCharge, ExtractedDocument, Operation, RawDocument
 from ship_invoice_agent.workflow import InvoiceAgent
@@ -39,6 +40,11 @@ class FakeExtractor:
         )
 
 
+class FailingExtractor:
+    def extract(self, document):
+        raise ExtractionTimeoutError("simulated exhausted budget")
+
+
 def test_workflow_normalizes_classifies_and_creates(tmp_path):
     settings = Settings(
         existing_bills_path=tmp_path / "bills.json",
@@ -59,3 +65,21 @@ def test_workflow_normalizes_classifies_and_creates(tmp_path):
     assert operations[0].financial_attributes.posting_type == "AR"
     assert operations[0].financial_attributes.accounting_entity == "Pilot Aiship Tech co., Ltd."
     assert operations[0].charge_details.amount == 65.0
+
+
+def test_workflow_turns_extraction_timeout_into_pending_review(tmp_path):
+    settings = Settings(
+        existing_bills_path=tmp_path / "bills.json",
+        charge_aliases_path=Path("data/charge_aliases.json"),
+        party_aliases_path=Path("data/party_aliases.json"),
+        currencies_path=Path("data/currencies.json"),
+    )
+    repository = JsonBillRepository(settings.existing_bills_path)
+    agent = InvoiceAgent(settings, FakeRouter(), FailingExtractor(), repository)
+
+    operations = agent.process(Path("invoice.pdf"), accounting_entity="Pilot Aiship Tech co., Ltd.")
+
+    assert len(operations) == 1
+    assert operations[0].operation == Operation.PENDING_REVIEW
+    assert "LLM_EXTRACTION_FAILED" in operations[0].audit_trail.warnings
+    assert "LLM_TIME_BUDGET_EXHAUSTED" in operations[0].audit_trail.warnings

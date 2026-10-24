@@ -1,0 +1,44 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": null,
+      "reference_no": null,
+      "document_date": null
+    },
+    "transaction_party": {
+      "issuer": null,
+      "recipient": null
+    },
+    "charge_details": {
+      "charge_item": null,
+      "amount": null,
+      "currency": null,
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "source_file": "PDF 示例账单2.pdf",
+      "source_page": null,
+      "original_charge_item": null,
+      "source_text": null,
+      "file_hash": "70dcc3e7d07a0012fc642af256371f25438eed2c7bbe25442b7ffbd193fd34ba",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.0,
+      "ai_reasoning": [
+        "model extraction exhausted its retry/time budget"
+      ],
+      "warnings": [
+        "LLM_EXTRACTION_FAILED",
+        "LLM_TIME_BUDGET_EXHAUSTED",
+        "NO_VALID_CHARGE_RECORD"
+      ]
+    }
+  }
+]

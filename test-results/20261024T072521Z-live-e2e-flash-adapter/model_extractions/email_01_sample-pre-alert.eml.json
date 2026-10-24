@@ -1,0 +1,46 @@
+{
+  "source_name": "sample-pre-alert.eml",
+  "parent_source": null,
+  "elapsed_seconds": 5.986095,
+  "extracted": {
+    "document_type": "Pre-Alert Email",
+    "reference_no": null,
+    "document_date": "2026-10-20",
+    "issuer": "luka@pltplt.com",
+    "recipient": "li@pltplt.com",
+    "payee": null,
+    "master_bill_of_lading_no": "OOLU4055331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": "SSZSE26093128",
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": null,
+    "voyage": null,
+    "port_of_loading": "YANTIAN",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": "2026-10-30",
+    "etd": "2026-10-15",
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [
+      {
+        "original_charge_item": "SHA pay TAR：H/C $50",
+        "charge_item": "Terminal Handling Charge (THC)",
+        "quantity": null,
+        "unit_price": null,
+        "amount": "50.0",
+        "currency": "USD",
+        "payment_term": "CC",
+        "source_text": "SHA pay TAR：H/C $50",
+        "source_page": null,
+        "confidence": 0.9
+      }
+    ],
+    "warnings": [
+      "The email mentions 'FREIGHT PREPAID' for the main shipment but specifies 'SHA pay TAR' which implies a collect payment term for the destination terminal handling charge.",
+      "House Bill of Lading number is not explicitly provided in the text body, only referenced as an attachment."
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "source_name": "4055331281 MBL.pdf",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 64.72328,
+  "extracted": {
+    "document_type": "Master Bill of Lading",
+    "reference_no": "HZMHK331281",
+    "document_date": "2026-10-01",
+    "issuer": null,
+    "recipient": null,
+    "payee": null,
+    "master_bill_of_lading_no": "HZMHK331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": "4055331281",
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": "SEASPAN HARMONY",
+    "voyage": "087E",
+    "port_of_loading": "YANTIAN,CHINA",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "The charges/freight table is heavily garbled by OCR and no legible charge lines, amounts, or currency values were found.",
+      "The carrier/issuer name and signature block are illegible.",
+      "The text contains both 'PREPAID' and 'COLLECT' near the charges/shipped-on-board area, making the freight payment term ambiguous.",
+      "The container/seal line appears to combine container number and seal number: TIIU8975975 / OOLLHV6833."
+    ]
+  }
+}

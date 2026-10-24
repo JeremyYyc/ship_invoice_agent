@@ -16,3 +16,7 @@ class OCRServiceError(ShipInvoiceAgentError):
 
 class ExtractionError(ShipInvoiceAgentError):
     """Raised when the LLM cannot produce a valid structured result."""
+
+
+class ExtractionTimeoutError(ExtractionError):
+    """Raised when LLM extraction exhausts its timeout/time budget."""
