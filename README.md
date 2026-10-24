@@ -202,16 +202,22 @@ stdout 只有最终 JSON，日志写到 stderr。
       "posting_type": "AR"
     },
     "audit_trail": {
-      "source_file": "PDF 示例账单2.pdf",
-      "confidence": 0.96,
-      "ai_reasoning": [],
-      "warnings": []
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is issuer/payee"
+      ]
     }
   }
 ]
 ```
 
+默认 `OUTPUT_SCHEMA_MODE=assignment`，stdout 严格只包含题目规定的字段；`audit_trail`
+只包含 `ai_reasoning`。内部的来源文件、置信度、warning、字段变化和冲突仍保留在
+`BillOperation` 中，其中需要对外展示的诊断会合并进标准输出的 `ai_reasoning`。
 缺失字段使用 `null`，金额为 JSON number。
+
+仅在本地调试或保存内部诊断时可设置 `OUTPUT_SCHEMA_MODE=internal`；交付和验收环境必须保持
+`assignment`。
 
 ## 匹配和冲突
 

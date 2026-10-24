@@ -21,7 +21,7 @@ def test_evaluation_scores_exact_output(tmp_path: Path):
                 "payment_term": None,
             },
             "financial_attributes": {"accounting_entity": "A", "posting_type": "AR"},
-            "audit_trail": {"source_file": "x.pdf", "confidence": 1},
+            "audit_trail": {"ai_reasoning": []},
         }
     ]
     golden = {
