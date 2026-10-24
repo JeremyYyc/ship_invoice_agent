@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field
 
 from ship_invoice_agent.models import BillOperation, Operation, PostingType
+from ship_invoice_agent.output.reasoning_zh import build_assignment_reasoning
 
 
 class AssignmentDocumentInfo(BaseModel):
@@ -54,19 +55,6 @@ class AssignmentBillOperation(BaseModel):
 
     @classmethod
     def from_internal(cls, operation: BillOperation) -> "AssignmentBillOperation":
-        reasoning = list(operation.audit_trail.ai_reasoning)
-        reasoning.extend(
-            f"changed {field}: {values.get('old')} -> {values.get('new')}"
-            for field, values in operation.audit_trail.changed_fields.items()
-        )
-        reasoning.extend(
-            f"conflict {item.get('field', 'unknown')}: "
-            f"{item.get('existing_value')} != {item.get('extracted_value')}"
-            for item in operation.audit_trail.conflicts
-        )
-        reasoning.extend(f"warning: {warning}" for warning in operation.audit_trail.warnings)
-        reasoning = list(dict.fromkeys(reasoning))
-
         return cls(
             operation=operation.operation,
             document_info=AssignmentDocumentInfo(
@@ -88,5 +76,7 @@ class AssignmentBillOperation(BaseModel):
                 accounting_entity=operation.financial_attributes.accounting_entity,
                 posting_type=operation.financial_attributes.posting_type,
             ),
-            audit_trail=AssignmentAuditTrail(ai_reasoning=reasoning),
+            audit_trail=AssignmentAuditTrail(
+                ai_reasoning=build_assignment_reasoning(operation.audit_trail)
+            ),
         )

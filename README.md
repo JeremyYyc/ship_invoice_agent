@@ -203,8 +203,8 @@ stdout 只有最终 JSON，日志写到 stderr。
     },
     "audit_trail": {
       "ai_reasoning": [
-        "no historical bill matched the configured strategies",
-        "accounting entity is issuer/payee"
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为出票方或收款方，判定为应收"
       ]
     }
   }
@@ -214,6 +214,8 @@ stdout 只有最终 JSON，日志写到 stderr。
 默认 `OUTPUT_SCHEMA_MODE=assignment`，stdout 严格只包含题目规定的字段；`audit_trail`
 只包含 `ai_reasoning`。内部的来源文件、置信度、warning、字段变化和冲突仍保留在
 `BillOperation` 中，其中需要对外展示的诊断会合并进标准输出的 `ai_reasoning`。
+标准输出的推理和诊断文案统一使用中文；内部模式仍保留原始推理、warning code
+与字段级诊断，不改变业务判定。
 缺失字段使用 `null`，金额为 JSON number。
 
 仅在本地调试或保存内部诊断时可设置 `OUTPUT_SCHEMA_MODE=internal`；交付和验收环境必须保持
