@@ -1,0 +1,18 @@
+2026-10-24 15:52:04,162 INFO live_e2e: creating configured model provider=qwen model=qwen3.8-flash
+2026-10-24 15:52:04,163 INFO langchain_openai.chat_models._client_utils: langchain-openai detected HTTP_PROXY, HTTPS_PROXY and no explicit `http_socket_options` / `http_client` / `http_async_client` / `openai_proxy`; skipping the custom `httpx` transport so httpx's env-proxy auto-detection applies. Pass `http_socket_options=[...]` to opt back into kernel-level TCP keepalive tuning on top of the env proxy.
+2026-10-24 15:52:12,193 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:52:12,204 INFO live_e2e: case_start id=pdf1 input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF示例账单1.pdf
+2026-10-24 15:52:23,613 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:52:23,632 INFO live_e2e: case_success id=pdf1 operations=['CREATE']
+2026-10-24 15:52:23,633 INFO live_e2e: case_start id=pdf2 input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/PDF 示例账单2.pdf
+2026-10-24 15:52:38,928 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:52:38,950 INFO live_e2e: case_success id=pdf2 operations=['PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW']
+2026-10-24 15:52:38,950 INFO live_e2e: case_start id=email input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/sample-pre-alert.eml
+2026-10-24 15:52:49,473 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:52:57,567 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:53:06,329 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:53:14,061 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:53:14,079 INFO live_e2e: case_success id=email operations=['PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW', 'PENDING_REVIEW']
+2026-10-24 15:53:14,080 INFO live_e2e: case_start id=image input=/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/图片示例.png
+2026-10-24 15:53:26,426 INFO httpx2: HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-24 15:53:26,433 INFO live_e2e: case_success id=image operations=['CREATE', 'CREATE']

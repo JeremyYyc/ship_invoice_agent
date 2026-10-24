@@ -1,0 +1,32 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Arrival Notice",
+      "reference_no": null,
+      "document_date": "2026-10-19"
+    },
+    "transaction_party": {
+      "issuer": "CMA CGM",
+      "recipient": "Neptune Shipping Limited"
+    },
+    "charge_details": {
+      "charge_item": "On Carriage Additional - US Em",
+      "amount": 245.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Neptune Shipping Limited",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "no configured charge alias matched; preserved extracted name",
+        "warning: UNKNOWN_CHARGE_ALIAS"
+      ]
+    }
+  }
+]

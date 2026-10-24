@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ship_invoice_agent.models import BillOperation
+from ship_invoice_agent.output import AssignmentBillOperation
 
 
 @dataclass
@@ -33,7 +34,12 @@ def evaluate_output(actual_path: Path, golden_path: Path) -> EvaluationMetrics:
     metrics = EvaluationMetrics(cases=1)
     try:
         actual_raw = json.loads(actual_path.read_text(encoding="utf-8"))
-        actual = [BillOperation.model_validate(item) for item in actual_raw]
+        actual = []
+        for item in actual_raw:
+            try:
+                actual.append(AssignmentBillOperation.model_validate(item))
+            except Exception:
+                actual.append(BillOperation.model_validate(item))
     except Exception:
         metrics.invalid_json = 1
         return metrics

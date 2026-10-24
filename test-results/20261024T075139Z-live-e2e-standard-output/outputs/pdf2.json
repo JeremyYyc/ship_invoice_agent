@@ -1,0 +1,98 @@
+[
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Neptune Shipping Limited",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 65.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "original_charge_item alias mapped deterministically to Handling Charge",
+        "warning: AR_AP_UNRESOLVED",
+        "warning: Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name.",
+        "warning: OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Neptune Shipping Limited",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Additional Detention Free Time Charge",
+      "amount": 1310.4,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "source_text alias mapped deterministically to Additional Detention Free Time Charge",
+        "warning: AR_AP_UNRESOLVED",
+        "warning: Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name.",
+        "warning: OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  },
+  {
+    "operation": "PENDING_REVIEW",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Neptune Shipping Limited",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 35.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": null
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "ACCOUNTING_ENTITY_ROLE_UNRESOLVED",
+        "original_charge_item alias mapped deterministically to Handling Charge",
+        "warning: AR_AP_UNRESOLVED",
+        "warning: Line item '4 ADD'L DETENTION...' contains a leading '4' which appears to be an OCR artifact or line number, not part of the charge name.",
+        "warning: OCR text 'cob' interpreted as payment term 'CC' (Collect) based on context and standard freight terms."
+      ]
+    }
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "source_name": "4055331281 MBL.pdf",
+  "parent_source": "sample-pre-alert.eml",
+  "elapsed_seconds": 8.758427,
+  "extracted": {
+    "document_type": "Master Bill of Lading",
+    "reference_no": null,
+    "document_date": "2026-10-01",
+    "issuer": "Pilot Aiship Tech co., Ltd.",
+    "recipient": "TARGETING AINC",
+    "payee": null,
+    "master_bill_of_lading_no": "HZMHK331281",
+    "house_bill_of_lading_no": null,
+    "booking_no": "4055331281",
+    "container_numbers": [
+      "TIIU8975975"
+    ],
+    "vessel": "SEASPAN HARMONY",
+    "voyage": "087E",
+    "port_of_loading": "YANTIAN,CHINA",
+    "port_of_discharge": "LONG BEACH,CA",
+    "eta": null,
+    "etd": null,
+    "subtotal": null,
+    "tax": null,
+    "total": null,
+    "charges": [],
+    "warnings": [
+      "OCR quality is poor; header 'PAGE: 10F 1' likely means 'Page 1 of 1'.",
+      "Issuer name 'Pilot Aiship Tech co., Ltd.' appears to be an OCR error for a shipping line or agent, possibly 'Maersk' or similar given the context, but extracted as seen.",
+      "Consignee email 'LULU@PLTPLT.COM' may contain typos.",
+      "No explicit freight charges or amounts are listed in the visible text; only 'AS ARRANGEED' under Collect column."
+    ]
+  }
+}

@@ -47,7 +47,14 @@ def process_command(args: argparse.Namespace, settings: Settings) -> int:
         accounting_entity=args.accounting_entity,
         apply=args.apply,
     )
-    sys.stdout.write(serialize_operations(operations, settings.json_output_indent) + "\n")
+    sys.stdout.write(
+        serialize_operations(
+            operations,
+            settings.json_output_indent,
+            settings.output_schema_mode,
+        )
+        + "\n"
+    )
     return 0
 
 

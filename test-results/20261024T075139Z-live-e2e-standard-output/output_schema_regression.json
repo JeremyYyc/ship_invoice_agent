@@ -1,0 +1,17 @@
+{
+  "schema": "assignment",
+  "records_checked": 10,
+  "expected_top_level_fields": [
+    "audit_trail",
+    "charge_details",
+    "document_info",
+    "financial_attributes",
+    "operation",
+    "transaction_party"
+  ],
+  "audit_trail_fields": [
+    "ai_reasoning"
+  ],
+  "errors": [],
+  "passed": true
+}

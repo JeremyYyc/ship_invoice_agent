@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     app_env: str = "development"
     log_level: str = "INFO"
     json_output_indent: int | None = 2
+    output_schema_mode: Literal["assignment", "internal"] = "assignment"
 
     llm_protocol: Literal["openai_compatible", "langchain_provider"] = "openai_compatible"
     llm_provider: str = "qwen"

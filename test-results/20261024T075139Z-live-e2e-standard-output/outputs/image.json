@@ -1,0 +1,69 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "DEBIT INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ASAGENTS FOR INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "original_charge_item alias mapped deterministically to Wharfage Administration Fee",
+        "warning: Charge item names contain typos ('WHARFAGEADWINSTRATIONFEE', 'wmnnrace').",
+        "warning: Currency codes in source text are inconsistent ('uso', 'uSD').",
+        "warning: OCR quality is poor; vessel name 'MSC ELODIE' and voyage number may be misread.",
+        "warning: Total amount calculation: 5.00 + 21.90 = 26.90 matches the stated total."
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "DEBIT INVOICE",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ASAGENTS FOR INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage OTT",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "no configured charge alias matched; preserved extracted name",
+        "warning: Charge item names contain typos ('WHARFAGEADWINSTRATIONFEE', 'wmnnrace').",
+        "warning: Currency codes in source text are inconsistent ('uso', 'uSD').",
+        "warning: OCR quality is poor; vessel name 'MSC ELODIE' and voyage number may be misread.",
+        "warning: Total amount calculation: 5.00 + 21.90 = 26.90 matches the stated total.",
+        "warning: UNKNOWN_CHARGE_ALIAS"
+      ]
+    }
+  }
+]
