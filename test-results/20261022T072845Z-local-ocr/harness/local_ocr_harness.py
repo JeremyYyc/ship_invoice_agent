@@ -198,7 +198,10 @@ def main() -> int:
                 if "ocr_raw" in raw.metadata:
                     raw_index += 1
                     raw_ocr = raw.metadata["ocr_raw"]
-                    prefix = f"{raw_index:02d}_{safe_name(top_path.name)}__{safe_name(raw.source_name)}"
+                    prefix = (
+                        f"{raw_index:02d}_{safe_name(top_path.name)}__"
+                        f"{safe_name(raw.source_name)}"
+                    )
                     (raw_dir / f"{prefix}.json").write_text(
                         json.dumps(raw_ocr, ensure_ascii=False, indent=2), encoding="utf-8"
                     )
@@ -246,7 +249,11 @@ def main() -> int:
         f"errors={len(errors)}",
     )
     check("email_body_plus_three_attachments", len(email_docs) == 4, f"observed={len(email_docs)}")
-    check("email_attachment_parent_links", len(email_attachments) == 3, f"observed={len(email_attachments)}")
+    check(
+        "email_attachment_parent_links",
+        len(email_attachments) == 3,
+        f"observed={len(email_attachments)}",
+    )
     check("six_ocr_documents", len(ocr_documents) == 6, f"observed={len(ocr_documents)}")
     check("six_client_requests", len(client.requests) == 6, f"observed={len(client.requests)}")
     check(

@@ -1,0 +1,25 @@
+{
+  "mode": "saved_model_replay",
+  "external_model_calls": 0,
+  "apply": false,
+  "original_strict_cases_passed": 5,
+  "replay_strict_cases_passed": 6,
+  "cases": 6,
+  "charge_rows": 12,
+  "all_charge_values_exact": true,
+  "model_output_bytes_unchanged": true,
+  "source_archive_files_unchanged": 33,
+  "source_archive_unchanged": true,
+  "default_history_unchanged": true,
+  "default_history_sha256": "5239a7754876b9a70871c45e41f1bd9abbd91ed2de67af926c1cfcc9c9377d51",
+  "charge_aliases_sha256": "5819d17ae6331c38efd6b7c5d3a308d70e2839e0a923d1e8578634e99d2f46d6",
+  "charge_name_changes": [
+    {
+      "file": "wharfage-invoice.docx",
+      "old": "WHARFAGE",
+      "new": "Wharfage",
+      "amount": 21.9
+    }
+  ],
+  "unit_tests_passed": 110
+}

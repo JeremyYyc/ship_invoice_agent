@@ -1,0 +1,89 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 65.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为出票方或收款方，判定为应收",
+        "根据原始费用名称中的别名，确定性映射为Handling Charge"
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Additional Detention Free Time Charge",
+      "amount": 1310.4,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为出票方或收款方，判定为应收",
+        "根据模型费用名称映射为Additional Detention Free Time Charge"
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24"
+    },
+    "transaction_party": {
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "AEBO TCO IMPORT LLC"
+    },
+    "charge_details": {
+      "charge_item": "Handling Charge",
+      "amount": 35.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+      "posting_type": "AR"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为出票方或收款方，判定为应收",
+        "根据原始费用名称中的别名，确定性映射为Handling Charge"
+      ]
+    }
+  }
+]

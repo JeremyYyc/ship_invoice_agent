@@ -1,0 +1,61 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为收件方，判定为应付",
+        "根据原始费用名称中的别名，确定性映射为Wharfage Administration Fee"
+      ]
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为收件方，判定为应付",
+        "未匹配到已配置的费用别名，保留提取名称",
+        "费用名称未匹配到已配置的标准别名"
+      ]
+    }
+  }
+]

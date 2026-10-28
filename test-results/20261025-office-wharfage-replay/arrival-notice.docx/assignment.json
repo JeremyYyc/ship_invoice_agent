@@ -1,0 +1,32 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Arrival Notice",
+      "reference_no": "AN20261019001",
+      "document_date": "2026-10-19"
+    },
+    "transaction_party": {
+      "issuer": "CMA CGM",
+      "recipient": "Neptune Shipping Limited"
+    },
+    "charge_details": {
+      "charge_item": "On Carriage Additional - US Em",
+      "amount": 245.0,
+      "currency": "USD",
+      "payment_term": "CC"
+    },
+    "financial_attributes": {
+      "accounting_entity": "Neptune Shipping Limited",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "ai_reasoning": [
+        "未找到符合已配置匹配策略的历史账单",
+        "记账主体为收件方，判定为应付",
+        "未匹配到已配置的费用别名，保留提取名称",
+        "费用名称未匹配到已配置的标准别名"
+      ]
+    }
+  }
+]

@@ -1,0 +1,111 @@
+{
+  "model": "qwen3.8-flash",
+  "provider": "qwen",
+  "thinking": false,
+  "passed": false,
+  "seconds": 42.28,
+  "cases": [
+    {
+      "file": "arrival-notice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 7.85
+    },
+    {
+      "file": "arrival-notice.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 4.44
+    },
+    {
+      "file": "debit-note.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 8.88
+    },
+    {
+      "file": "debit-note.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 9.29
+    },
+    {
+      "file": "wharfage-invoice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 5.04
+    },
+    {
+      "file": "wharfage-invoice.docx",
+      "passed": false,
+      "checks": {
+        "charge_count": true,
+        "charge_values": false,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 6.65
+    }
+  ]
+}

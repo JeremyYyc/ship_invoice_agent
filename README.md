@@ -254,6 +254,56 @@ pytest -q
 
 单元测试不调用真实模型或 OCR。
 
+### Excel 和 Word 样例
+
+`tests/fixtures/documents/` 新增三组原生 `.xlsx`、`.docx` 样例，共六个文件。
+它们参考已有 PDF 和图片编写，仅保留账单关键内容，不是原文件的逐字转换。
+
+| 文件名（分别包含 `.xlsx` 和 `.docx`） | 参考样例 | 费用金额 USD | 合计 USD |
+| --- | --- | --- | --- |
+| `arrival-notice` | PDF 示例账单 1 | 245.00 | 245.00 |
+| `debit-note` | PDF 示例账单 2 | 65.00、1310.40、35.00 | 1410.40 |
+| `wharfage-invoice` | 图片示例 | 5.00、21.90 | 26.90 |
+
+样例定义和期望结果位于 `tests/fixtures/office_samples.json`。
+Arrival Notice 的单据号、部分交易方、图片账单的日期和若干辅助字段为编写数据，
+所有样例均按清晰表格重建；图片 OCR 原有歧义不能据此视为已经修复。
+Debit Note 保留两条不同金额的 Handling Charge，并添加文本订舱号 `00YYC` 验证前导零。
+
+```bash
+pytest tests/unit/test_office_parsers.py -q
+```
+
+这组离线测试验证原生文档路由不调用 OCR、段落和费用表格内容保留、Excel 数值类型和
+公式缓存合计、前导零编号，以及使用假模型输出后的费用标准化、AR/AP 和 JSON 输出。
+离线测试不验证真实模型的抽取准确率；旧式 `.xls`、`.doc` 不在本轮样例范围内。
+
+如需调用 `.env` 配置的真实模型，可在获得文档外发授权后运行：
+
+```bash
+python scripts/verify_office_samples.py --output-dir test-results/office-live-unique-run
+```
+
+该脚本检查六个文件的费用、金额、币种、付款方式、单据和物流字段、AR/AP 及总额，
+保存读取内容、模型抽取和最终输出；禁止调用 OCR，关闭账单写回，并使用独立空历史库。
+输出目录必须是新目录，以免覆盖之前的验证记录。
+
+调整标准化规则后，可复用已保存的真实模型输出做离线重放，无需重新调用模型：
+
+```bash
+python scripts/verify_office_samples.py \
+  --replay-from test-results/20261025-office-native-reading \
+  --output-dir test-results/office-replay-unique-run
+```
+
+重放会重新读取原生文件，校验读取内容和文件哈希与归档一致，再将保存的模型输出送入
+当前标准化及业务流程；原始结果目录保持只读，新结果写入独立目录，并记录源目录文件哈希。
+`Wharfage` 已作为独立标准名加入词表，大小写写法统一为 `Wharfage`，
+较长的 `Wharfage Administration Fee` 及其别名仍映射至独立费用，避免被较短名称覆盖。
+本次修复的重放结果和原始失败结果分别见
+`test-results/20261025-office-wharfage-replay/REPORT.md` 与
+`test-results/20261025-office-native-reading/REPORT.md`。
+
 将一次真实运行的 stdout 保存后，和 Golden 比较：
 
 ```bash

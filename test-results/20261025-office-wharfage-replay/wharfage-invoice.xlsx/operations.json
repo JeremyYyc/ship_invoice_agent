@@ -1,0 +1,82 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "wharfage-invoice.xlsx",
+      "source_page": null,
+      "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+      "source_text": "Line | Charge item | Quantity | Unit price | Currency | Amount | Payment term\n1 | WHARFAGE ADMINISTRATION FEE | 1 | 5 | USD | 5 | ",
+      "file_hash": "dc57003ee9b91ff106b42e557ab3ebc0a8e4662187ebdcf2848cd1107b490bd0",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "original_charge_item alias mapped deterministically to Wharfage Administration Fee"
+      ],
+      "warnings": []
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "wharfage-invoice.xlsx",
+      "source_page": null,
+      "original_charge_item": "WHARFAGE",
+      "source_text": "2 | WHARFAGE | 1 | 21.9 | USD | 21.9 | ",
+      "file_hash": "dc57003ee9b91ff106b42e557ab3ebc0a8e4662187ebdcf2848cd1107b490bd0",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 0.95,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "original_charge_item alias mapped deterministically to Wharfage"
+      ],
+      "warnings": []
+    }
+  }
+]

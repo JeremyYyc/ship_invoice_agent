@@ -1,0 +1,63 @@
+{
+  "document_type": "Debit Note",
+  "reference_no": "DC108478",
+  "document_date": "2026-10-24",
+  "issuer": "Pilot Aiship Tech co., Ltd.",
+  "recipient": "AEBO TCO IMPORT LLC",
+  "payee": null,
+  "master_bill_of_lading_no": "MAEU275752922",
+  "house_bill_of_lading_no": "CGT260801188",
+  "booking_no": "00YYC",
+  "container_numbers": [
+    "MRSU2571577",
+    "TCLU8619685"
+  ],
+  "vessel": null,
+  "voyage": null,
+  "port_of_loading": null,
+  "port_of_discharge": null,
+  "eta": null,
+  "etd": null,
+  "subtotal": null,
+  "tax": null,
+  "total": "1410.4",
+  "charges": [
+    {
+      "original_charge_item": "HANDLING CHARGE",
+      "charge_item": "Handling Charge",
+      "quantity": "1",
+      "unit_price": "65.0",
+      "amount": "65.0",
+      "currency": "USD",
+      "payment_term": "CC",
+      "source_text": "HANDLING CHARGE | 1 | 65.00 | USD | 65.00",
+      "source_page": null,
+      "confidence": 1.0
+    },
+    {
+      "original_charge_item": "ADD'L DETENTION FREE TIME CHARGE",
+      "charge_item": "Additional Detention Free Time Charge",
+      "quantity": "1",
+      "unit_price": "1310.4",
+      "amount": "1310.4",
+      "currency": "USD",
+      "payment_term": "CC",
+      "source_text": "ADD'L DETENTION FREE TIME CHARGE | 1 | 1,310.40 | USD | 1,310.40",
+      "source_page": null,
+      "confidence": 1.0
+    },
+    {
+      "original_charge_item": "HANDLING CHARGE",
+      "charge_item": "Handling Charge",
+      "quantity": "1",
+      "unit_price": "35.0",
+      "amount": "35.0",
+      "currency": "USD",
+      "payment_term": "CC",
+      "source_text": "HANDLING CHARGE | 1 | 35.00 | USD | 35.00",
+      "source_page": null,
+      "confidence": 1.0
+    }
+  ],
+  "warnings": []
+}

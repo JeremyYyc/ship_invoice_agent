@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-25T10:42:34+08:00",
+  "model": "qwen3.8-flash",
+  "service_host": "dashscope.aliyuncs.com",
+  "thinking": false,
+  "apply": false,
+  "live_model_cases": 6,
+  "strict_cases_passed": 5,
+  "output_charge_rows": 12,
+  "exact_charge_rows": 11,
+  "case_insensitive_charge_rows": 12,
+  "amount_currency_payment_rows": 12,
+  "default_database_sha256_before": "5239a7754876b9a70871c45e41f1bd9abbd91ed2de67af926c1cfcc9c9377d51",
+  "default_database_sha256_after": "5239a7754876b9a70871c45e41f1bd9abbd91ed2de67af926c1cfcc9c9377d51",
+  "default_database_unchanged": true,
+  "all_isolated_histories_unchanged": true,
+  "all_inputs_unchanged_since_parse": true,
+  "cases": [
+    {
+      "file": "arrival-notice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 7.85,
+      "exact_charge_rows": 1,
+      "case_insensitive_charge_rows": 1,
+      "amount_currency_payment_rows": 1,
+      "expected_total_usd": 245.0,
+      "actual_total_usd": 245.0,
+      "posting_type": "AP",
+      "history_bytes_unchanged": true,
+      "source_sha256": "6d8770cb236a8997b296ebacef8e49b3bc07366391e57da5bb3f99bc24b26e0d",
+      "source_unchanged_since_parse": true,
+      "warnings": {
+        "UNKNOWN_CHARGE_ALIAS": 1
+      },
+      "charges_output": [
+        {
+          "charge_item": "On Carriage Additional - US Em",
+          "amount": 245.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        }
+      ]
+    },
+    {
+      "file": "arrival-notice.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 4.44,
+      "exact_charge_rows": 1,
+      "case_insensitive_charge_rows": 1,
+      "amount_currency_payment_rows": 1,
+      "expected_total_usd": 245.0,
+      "actual_total_usd": 245.0,
+      "posting_type": "AP",
+      "history_bytes_unchanged": true,
+      "source_sha256": "027b6980fd138e4e689ccf465a5f86016ac952e1c51abfb3ebf84fd274f88206",
+      "source_unchanged_since_parse": true,
+      "warnings": {
+        "UNKNOWN_CHARGE_ALIAS": 1
+      },
+      "charges_output": [
+        {
+          "charge_item": "On Carriage Additional - US Em",
+          "amount": 245.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        }
+      ]
+    },
+    {
+      "file": "debit-note.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 8.88,
+      "exact_charge_rows": 3,
+      "case_insensitive_charge_rows": 3,
+      "amount_currency_payment_rows": 3,
+      "expected_total_usd": 1410.4,
+      "actual_total_usd": 1410.4,
+      "posting_type": "AR",
+      "history_bytes_unchanged": true,
+      "source_sha256": "9ddededa9bf795a2455f950212d259870f58a696074aa5e286cd5d2418089072",
+      "source_unchanged_since_parse": true,
+      "warnings": {},
+      "charges_output": [
+        {
+          "charge_item": "Handling Charge",
+          "amount": 65.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        },
+        {
+          "charge_item": "Additional Detention Free Time Charge",
+          "amount": 1310.4,
+          "currency": "USD",
+          "payment_term": "CC"
+        },
+        {
+          "charge_item": "Handling Charge",
+          "amount": 35.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        }
+      ]
+    },
+    {
+      "file": "debit-note.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 9.29,
+      "exact_charge_rows": 3,
+      "case_insensitive_charge_rows": 3,
+      "amount_currency_payment_rows": 3,
+      "expected_total_usd": 1410.4,
+      "actual_total_usd": 1410.4,
+      "posting_type": "AR",
+      "history_bytes_unchanged": true,
+      "source_sha256": "f5fb415452849a1b2a58167b7b7c8cb50d73a09e43587240f74610757eb2b421",
+      "source_unchanged_since_parse": true,
+      "warnings": {},
+      "charges_output": [
+        {
+          "charge_item": "Handling Charge",
+          "amount": 65.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        },
+        {
+          "charge_item": "Additional Detention Free Time Charge",
+          "amount": 1310.4,
+          "currency": "USD",
+          "payment_term": "CC"
+        },
+        {
+          "charge_item": "Handling Charge",
+          "amount": 35.0,
+          "currency": "USD",
+          "payment_term": "CC"
+        }
+      ]
+    },
+    {
+      "file": "wharfage-invoice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 5.04,
+      "exact_charge_rows": 2,
+      "case_insensitive_charge_rows": 2,
+      "amount_currency_payment_rows": 2,
+      "expected_total_usd": 26.9,
+      "actual_total_usd": 26.9,
+      "posting_type": "AP",
+      "history_bytes_unchanged": true,
+      "source_sha256": "dc57003ee9b91ff106b42e557ab3ebc0a8e4662187ebdcf2848cd1107b490bd0",
+      "source_unchanged_since_parse": true,
+      "warnings": {
+        "UNKNOWN_CHARGE_ALIAS": 1
+      },
+      "charges_output": [
+        {
+          "charge_item": "Wharfage Administration Fee",
+          "amount": 5.0,
+          "currency": "USD",
+          "payment_term": null
+        },
+        {
+          "charge_item": "Wharfage",
+          "amount": 21.9,
+          "currency": "USD",
+          "payment_term": null
+        }
+      ]
+    },
+    {
+      "file": "wharfage-invoice.docx",
+      "passed": false,
+      "checks": {
+        "charge_count": true,
+        "charge_values": false,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 6.65,
+      "exact_charge_rows": 1,
+      "case_insensitive_charge_rows": 2,
+      "amount_currency_payment_rows": 2,
+      "expected_total_usd": 26.9,
+      "actual_total_usd": 26.9,
+      "posting_type": "AP",
+      "history_bytes_unchanged": true,
+      "source_sha256": "97f8cdb9a24351704912e572b94f9e51303bb62b8960fec5934cfa0fa30d9835",
+      "source_unchanged_since_parse": true,
+      "warnings": {
+        "UNKNOWN_CHARGE_ALIAS": 1
+      },
+      "charges_output": [
+        {
+          "charge_item": "Wharfage Administration Fee",
+          "amount": 5.0,
+          "currency": "USD",
+          "payment_term": null
+        },
+        {
+          "charge_item": "WHARFAGE",
+          "amount": 21.9,
+          "currency": "USD",
+          "payment_term": null
+        }
+      ]
+    }
+  ]
+}

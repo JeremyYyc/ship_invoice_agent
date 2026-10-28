@@ -1,0 +1,9 @@
+{
+  "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/wharfage-invoice.xlsx",
+  "source_name": "wharfage-invoice.xlsx",
+  "source_type": "xlsx",
+  "content": "[SHEET: Charges]\n | Invoice |  |  |  |  | \n | Recreated test data based on the image sample |  |  |  |  | \nReference no | ORFR1G18731 |  |  |  |  | \nDocument date | 2025-03-10 00:00:00 |  |  |  |  | \nIssuer | ZIM INTEGRATED SHIPPING SERVICES LTD |  |  |  |  | \nRecipient | USIAHALLAM |  |  |  |  | \nMaster bill of lading |  |  |  |  |  | \nHouse bill of lading |  |  |  |  |  | \nBooking no |  |  |  |  |  | \nContainer numbers |  |  |  |  |  | \nLine | Charge item | Quantity | Unit price | Currency | Amount | Payment term\n1 | WHARFAGE ADMINISTRATION FEE | 1 | 5 | USD | 5 | \n2 | WHARFAGE | 1 | 21.9 | USD | 21.9 | \n | Total |  |  | USD | 26.9 | ",
+  "metadata": {},
+  "file_hash": "dc57003ee9b91ff106b42e557ab3ebc0a8e4662187ebdcf2848cd1107b490bd0",
+  "parent_source": null
+}

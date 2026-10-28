@@ -1,0 +1,84 @@
+[
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "Wharfage Administration Fee",
+      "amount": 5.0,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "wharfage-invoice.docx",
+      "source_page": null,
+      "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+      "source_text": "WHARFAGE ADMINISTRATION FEE | 1 | 5.00 | USD | 5.00",
+      "file_hash": "97f8cdb9a24351704912e572b94f9e51303bb62b8960fec5934cfa0fa30d9835",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 1.0,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "original_charge_item alias mapped deterministically to Wharfage Administration Fee"
+      ],
+      "warnings": []
+    }
+  },
+  {
+    "operation": "CREATE",
+    "document_info": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10"
+    },
+    "transaction_party": {
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM"
+    },
+    "charge_details": {
+      "charge_item": "WHARFAGE",
+      "amount": 21.9,
+      "currency": "USD",
+      "payment_term": null
+    },
+    "financial_attributes": {
+      "accounting_entity": "USIAHALLAM",
+      "posting_type": "AP"
+    },
+    "audit_trail": {
+      "source_file": "wharfage-invoice.docx",
+      "source_page": null,
+      "original_charge_item": "WHARFAGE",
+      "source_text": "WHARFAGE | 1 | 21.90 | USD | 21.90",
+      "file_hash": "97f8cdb9a24351704912e572b94f9e51303bb62b8960fec5934cfa0fa30d9835",
+      "matched_bill_id": null,
+      "match_strategy": null,
+      "changed_fields": {},
+      "conflicts": [],
+      "confidence": 1.0,
+      "ai_reasoning": [
+        "no historical bill matched the configured strategies",
+        "accounting entity is recipient",
+        "no configured charge alias matched; preserved extracted name"
+      ],
+      "warnings": [
+        "UNKNOWN_CHARGE_ALIAS"
+      ]
+    }
+  }
+]

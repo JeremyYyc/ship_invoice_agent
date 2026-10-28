@@ -1,0 +1,116 @@
+{
+  "mode": "saved_model_replay",
+  "replay_from": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/test-results/20261025-office-native-reading",
+  "external_model_calls": 0,
+  "model": "qwen3.8-flash",
+  "provider": "qwen",
+  "thinking": false,
+  "passed": true,
+  "seconds": 0.18,
+  "cases": [
+    {
+      "file": "arrival-notice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 0.04
+    },
+    {
+      "file": "arrival-notice.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 1,
+      "seconds": 0.02
+    },
+    {
+      "file": "debit-note.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 0.01
+    },
+    {
+      "file": "debit-note.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 3,
+      "seconds": 0.02
+    },
+    {
+      "file": "wharfage-invoice.xlsx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 0.01
+    },
+    {
+      "file": "wharfage-invoice.docx",
+      "passed": true,
+      "checks": {
+        "charge_count": true,
+        "charge_values": true,
+        "create": true,
+        "posting_type": true,
+        "document_fields": true,
+        "shipment_fields": true,
+        "total": true,
+        "no_ocr": true,
+        "history_unchanged": true
+      },
+      "charges": 2,
+      "seconds": 0.02
+    }
+  ],
+  "default_history_unchanged": true,
+  "source_results_unchanged": true
+}
