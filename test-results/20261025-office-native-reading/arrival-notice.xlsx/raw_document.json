@@ -1,0 +1,9 @@
+{
+  "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/arrival-notice.xlsx",
+  "source_name": "arrival-notice.xlsx",
+  "source_type": "xlsx",
+  "content": "[SHEET: Charges]\n | Arrival Notice |  |  |  |  | \n | Recreated test data based on PDF sample 1 |  |  |  |  | \nReference no | AN20261019001 |  |  |  |  | \nDocument date | 2026-10-19 00:00:00 |  |  |  |  | \nIssuer | CMA CGM |  |  |  |  | \nRecipient | Neptune Shipping Limited |  |  |  |  | \nMaster bill of lading | CHN4053601 |  |  |  |  | \nHouse bill of lading |  |  |  |  |  | \nBooking no |  |  |  |  |  | \nContainer numbers |  |  |  |  |  | \nLine | Charge item | Quantity | Unit price | Currency | Amount | Payment term\n1 | On Carriage Additional - US Em | 1 | 245 | USD | 245 | CC\n | Total |  |  | USD | 245 | ",
+  "metadata": {},
+  "file_hash": "6d8770cb236a8997b296ebacef8e49b3bc07366391e57da5bb3f99bc24b26e0d",
+  "parent_source": null
+}

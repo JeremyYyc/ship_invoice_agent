@@ -1,0 +1,9 @@
+{
+  "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/debit-note.docx",
+  "source_name": "debit-note.docx",
+  "source_type": "docx",
+  "content": "Debit Note\nRecreated test data based on PDF sample 2\nReference no: DC108478\nDocument date: 2026-10-24\nIssuer: Pilot Aiship Tech co., Ltd.\nRecipient: AEBO TCO IMPORT LLC\nMaster bill of lading: MAEU275752922\nHouse bill of lading: CGT260801188\nBooking no: 00YYC\nContainer numbers: MRSU2571577, TCLU8619685\nPayment term: CC\nCharges\nTotal: USD 1,410.40\n[TABLE 1]\nCharge item | Qty | Unit price | Cur | Amount\nHANDLING CHARGE | 1 | 65.00 | USD | 65.00\nADD'L DETENTION FREE TIME CHARGE | 1 | 1,310.40 | USD | 1,310.40\nHANDLING CHARGE | 1 | 35.00 | USD | 35.00",
+  "metadata": {},
+  "file_hash": "f5fb415452849a1b2a58167b7b7c8cb50d73a09e43587240f74610757eb2b421",
+  "parent_source": null
+}

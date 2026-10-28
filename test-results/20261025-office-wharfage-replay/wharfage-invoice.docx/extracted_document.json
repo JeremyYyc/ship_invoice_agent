@@ -1,0 +1,48 @@
+{
+  "document_type": "Invoice",
+  "reference_no": "ORFR1G18731",
+  "document_date": "2025-03-10",
+  "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+  "recipient": "USIAHALLAM",
+  "payee": null,
+  "master_bill_of_lading_no": null,
+  "house_bill_of_lading_no": null,
+  "booking_no": null,
+  "container_numbers": [],
+  "vessel": null,
+  "voyage": null,
+  "port_of_loading": null,
+  "port_of_discharge": null,
+  "eta": null,
+  "etd": null,
+  "subtotal": null,
+  "tax": null,
+  "total": "26.9",
+  "charges": [
+    {
+      "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+      "charge_item": "WHARFAGE ADMINISTRATION FEE",
+      "quantity": "1",
+      "unit_price": "5.0",
+      "amount": "5.0",
+      "currency": "USD",
+      "payment_term": null,
+      "source_text": "WHARFAGE ADMINISTRATION FEE | 1 | 5.00 | USD | 5.00",
+      "source_page": null,
+      "confidence": 1.0
+    },
+    {
+      "original_charge_item": "WHARFAGE",
+      "charge_item": "WHARFAGE",
+      "quantity": "1",
+      "unit_price": "21.9",
+      "amount": "21.9",
+      "currency": "USD",
+      "payment_term": null,
+      "source_text": "WHARFAGE | 1 | 21.90 | USD | 21.90",
+      "source_page": null,
+      "confidence": 1.0
+    }
+  ],
+  "warnings": []
+}

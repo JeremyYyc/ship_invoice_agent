@@ -1,0 +1,36 @@
+{
+  "document_type": "Arrival Notice",
+  "reference_no": "AN20261019001",
+  "document_date": "2026-10-19",
+  "issuer": "CMA CGM",
+  "recipient": "Neptune Shipping Limited",
+  "payee": null,
+  "master_bill_of_lading_no": "CHN4053601",
+  "house_bill_of_lading_no": null,
+  "booking_no": null,
+  "container_numbers": [],
+  "vessel": null,
+  "voyage": null,
+  "port_of_loading": null,
+  "port_of_discharge": null,
+  "eta": null,
+  "etd": null,
+  "subtotal": null,
+  "tax": null,
+  "total": "245.0",
+  "charges": [
+    {
+      "original_charge_item": "On Carriage Additional - US Em",
+      "charge_item": null,
+      "quantity": "1",
+      "unit_price": "245.0",
+      "amount": "245.0",
+      "currency": "USD",
+      "payment_term": "CC",
+      "source_text": "On Carriage Additional - US Em | 1 | 245.00 | USD | 245.00",
+      "source_page": null,
+      "confidence": 1.0
+    }
+  ],
+  "warnings": []
+}

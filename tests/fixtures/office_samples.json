@@ -1,0 +1,119 @@
+[
+  {
+    "name": "arrival-notice",
+    "source_sample": "PDF示例账单1.pdf",
+    "source_note": "Recreated test data based on PDF sample 1",
+    "synthetic_fields": ["reference_no"],
+    "accounting_entity": "Neptune Shipping Limited",
+    "posting_type": "AP",
+    "document": {
+      "document_type": "Arrival Notice",
+      "reference_no": "AN20261019001",
+      "document_date": "2026-10-19",
+      "issuer": "CMA CGM",
+      "recipient": "Neptune Shipping Limited",
+      "master_bill_of_lading_no": "CHN4053601",
+      "charges": [
+        {
+          "original_charge_item": "On Carriage Additional - US Em",
+          "charge_item": "On Carriage Additional - US Em",
+          "quantity": 1,
+          "unit_price": 245.0,
+          "amount": 245.0,
+          "currency": "USD",
+          "payment_term": "CC",
+          "confidence": 0.99
+        }
+      ],
+      "total": 245.0
+    }
+  },
+  {
+    "name": "debit-note",
+    "source_sample": "PDF 示例账单2.pdf",
+    "source_note": "Recreated test data based on PDF sample 2",
+    "synthetic_fields": ["recipient", "booking_no", "quantity", "unit_price"],
+    "accounting_entity": "Pilot Aiship Tech co., Ltd.",
+    "posting_type": "AR",
+    "document": {
+      "document_type": "Debit Note",
+      "reference_no": "DC108478",
+      "document_date": "2026-10-24",
+      "issuer": "Pilot Aiship Tech co., Ltd.",
+      "recipient": "AEBO TCO IMPORT LLC",
+      "master_bill_of_lading_no": "MAEU275752922",
+      "house_bill_of_lading_no": "CGT260801188",
+      "booking_no": "00YYC",
+      "container_numbers": ["MRSU2571577", "TCLU8619685"],
+      "charges": [
+        {
+          "original_charge_item": "HANDLING CHARGE",
+          "charge_item": "Handling Charge",
+          "quantity": 1,
+          "unit_price": 65.0,
+          "amount": 65.0,
+          "currency": "USD",
+          "payment_term": "CC",
+          "confidence": 0.99
+        },
+        {
+          "original_charge_item": "ADD'L DETENTION FREE TIME CHARGE",
+          "charge_item": "Additional Detention Free Time Charge",
+          "quantity": 1,
+          "unit_price": 1310.4,
+          "amount": 1310.4,
+          "currency": "USD",
+          "payment_term": "CC",
+          "confidence": 0.99
+        },
+        {
+          "original_charge_item": "HANDLING CHARGE",
+          "charge_item": "Handling Charge",
+          "quantity": 1,
+          "unit_price": 35.0,
+          "amount": 35.0,
+          "currency": "USD",
+          "payment_term": "CC",
+          "confidence": 0.99
+        }
+      ],
+      "total": 1410.4
+    }
+  },
+  {
+    "name": "wharfage-invoice",
+    "source_sample": "图片示例.png",
+    "source_note": "Recreated test data based on the image sample",
+    "synthetic_fields": ["document_date", "quantity", "unit_price"],
+    "accounting_entity": "USIAHALLAM",
+    "posting_type": "AP",
+    "document": {
+      "document_type": "Invoice",
+      "reference_no": "ORFR1G18731",
+      "document_date": "2025-03-10",
+      "issuer": "ZIM INTEGRATED SHIPPING SERVICES LTD",
+      "recipient": "USIAHALLAM",
+      "charges": [
+        {
+          "original_charge_item": "WHARFAGE ADMINISTRATION FEE",
+          "charge_item": "Wharfage Administration Fee",
+          "quantity": 1,
+          "unit_price": 5.0,
+          "amount": 5.0,
+          "currency": "USD",
+          "confidence": 0.99
+        },
+        {
+          "original_charge_item": "WHARFAGE",
+          "charge_item": "Wharfage",
+          "quantity": 1,
+          "unit_price": 21.9,
+          "amount": 21.9,
+          "currency": "USD",
+          "confidence": 0.99
+        }
+      ],
+      "total": 26.9
+    }
+  }
+]

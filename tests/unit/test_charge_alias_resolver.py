@@ -91,3 +91,68 @@ def test_conflicting_alias_configuration_fails_fast():
                 "Other Charge": ["H/C"],
             }
         )
+
+
+@pytest.mark.parametrize("name", ["Wharfage", "WHARFAGE", "wharfage", "WhArFaGe"])
+def test_wharfage_case_variants_resolve_to_standard_name(name):
+    result = ChargeAliasResolver(load_aliases()).resolve(
+        model_name=name,
+        original_name=name,
+        source_text=f"{name} | 1 | 21.90 | USD | 21.90",
+    )
+
+    assert result.canonical_name == "Wharfage"
+    assert result.evidence_source == "original_charge_item"
+    assert result.model_canonical == "Wharfage"
+    assert not result.conflict
+    assert not result.requires_review
+    assert result.warnings == []
+
+
+@pytest.mark.parametrize(
+    "name",
+    [
+        "Wharfage Administration Fee",
+        "WHARFAGE ADMINISTRATION FEE",
+        "Wharfage Admin Fee",
+        "WHARFAGE ADMIN FEE",
+    ],
+)
+def test_wharfage_administration_fee_remains_distinct_from_wharfage(name):
+    result = ChargeAliasResolver(load_aliases()).resolve(
+        model_name=name, original_name=name, source_text=f"{name} | 1 | 5.00 | USD | 5.00"
+    )
+
+    assert result.canonical_name == "Wharfage Administration Fee"
+    assert "Wharfage" not in result.matched_aliases
+    assert not result.conflict
+    assert not result.requires_review
+    assert result.warnings == []
+
+
+@pytest.mark.parametrize(
+    ("original", "model", "expected"),
+    [
+        ("WHARFAGE", "Wharfage Administration Fee", "Wharfage"),
+        ("WHARFAGE ADMINISTRATION FEE", "Wharfage", "Wharfage Administration Fee"),
+    ],
+)
+def test_wharfage_evidence_cannot_be_reclassified_as_the_other_charge(original, model, expected):
+    result = ChargeAliasResolver(load_aliases()).resolve(
+        model_name=model, original_name=original, source_text=original
+    )
+
+    assert result.canonical_name == expected
+    assert result.conflict
+    assert result.requires_review
+    assert "MODEL_CHARGE_NAME_CONFLICT" in result.warnings
+
+
+@pytest.mark.parametrize("name", ["WHARFAGES", "WHARFAGEADMINISTRATIONFEE"])
+def test_wharfage_rule_does_not_match_inside_another_token(name):
+    result = ChargeAliasResolver(load_aliases()).resolve(
+        model_name=name, original_name=name, source_text=None
+    )
+
+    assert result.canonical_name == name
+    assert result.warnings == ["UNKNOWN_CHARGE_ALIAS"]

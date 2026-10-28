@@ -1,0 +1,9 @@
+{
+  "source_path": "/Users/jeremyyang/codes/湃乐多航运科技/笔试题AIAGENT/ship_invoice_agent/tests/fixtures/documents/wharfage-invoice.docx",
+  "source_name": "wharfage-invoice.docx",
+  "source_type": "docx",
+  "content": "Invoice\nRecreated test data based on the image sample\nReference no: ORFR1G18731\nDocument date: 2025-03-10\nIssuer: ZIM INTEGRATED SHIPPING SERVICES LTD\nRecipient: USIAHALLAM\nCharges\nTotal: USD 26.90\n[TABLE 1]\nCharge item | Qty | Unit price | Cur | Amount\nWHARFAGE ADMINISTRATION FEE | 1 | 5.00 | USD | 5.00\nWHARFAGE | 1 | 21.90 | USD | 21.90",
+  "metadata": {},
+  "file_hash": "97f8cdb9a24351704912e572b94f9e51303bb62b8960fec5934cfa0fa30d9835",
+  "parent_source": null
+}
