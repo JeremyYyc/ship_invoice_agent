@@ -1,5 +1,6 @@
 import json
 from dataclasses import dataclass
+from decimal import Decimal
 from pathlib import Path
 
 from ship_invoice_agent.models import BillOperation
@@ -33,7 +34,7 @@ class EvaluationMetrics:
 def evaluate_output(actual_path: Path, golden_path: Path) -> EvaluationMetrics:
     metrics = EvaluationMetrics(cases=1)
     try:
-        actual_raw = json.loads(actual_path.read_text(encoding="utf-8"))
+        actual_raw = json.loads(actual_path.read_text(encoding="utf-8"), parse_float=Decimal)
         actual = []
         for item in actual_raw:
             try:
@@ -43,7 +44,7 @@ def evaluate_output(actual_path: Path, golden_path: Path) -> EvaluationMetrics:
     except Exception:
         metrics.invalid_json = 1
         return metrics
-    golden = json.loads(golden_path.read_text(encoding="utf-8"))
+    golden = json.loads(golden_path.read_text(encoding="utf-8"), parse_float=Decimal)
     expected_charges = golden.get("charges", [])
     metrics.expected_charges = len(expected_charges)
     if golden.get("reference_no") and any(

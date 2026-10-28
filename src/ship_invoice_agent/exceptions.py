@@ -20,3 +20,11 @@ class ExtractionError(ShipInvoiceAgentError):
 
 class ExtractionTimeoutError(ExtractionError):
     """Raised when LLM extraction exhausts its timeout/time budget."""
+
+
+class IncompleteExtractionError(ExtractionError):
+    """A refusal or truncated response must not be repaired into invented facts."""
+
+
+class RepositoryConflictError(ShipInvoiceAgentError):
+    """The historical snapshot changed or another writer holds the commit lock."""

@@ -1,3 +1,4 @@
+from decimal import Decimal
 from enum import StrEnum
 from typing import Any
 
@@ -29,7 +30,7 @@ class TransactionParty(BaseModel):
 
 class ChargeDetails(BaseModel):
     charge_item: str | None
-    amount: float | None
+    amount: Decimal | None
     currency: str | None
     payment_term: str | None
 
@@ -49,7 +50,11 @@ class AuditTrail(BaseModel):
     match_strategy: str | None = None
     changed_fields: dict[str, dict[str, Any]] = Field(default_factory=dict)
     conflicts: list[dict[str, Any]] = Field(default_factory=list)
-    confidence: float = Field(default=0.5, ge=0, le=1)
+    confidence: float | None = Field(default=0.5, ge=0, le=1)
+    schema_version: str | None = None
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    observations: list[dict[str, Any]] = Field(default_factory=list)
+    processed_at: str | None = None
     ai_reasoning: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
 
@@ -70,3 +75,4 @@ class ExistingBill(BaseModel):
     charge_details: ChargeDetails
     shipment_info: dict[str, Any] = Field(default_factory=dict)
     financial_attributes: FinancialAttributes | None = None
+    audit_history: list[AuditTrail] = Field(default_factory=list)

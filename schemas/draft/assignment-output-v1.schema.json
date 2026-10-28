@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ship-invoice-agent:assignment-output:v1",
+  "title": "AssignmentOutputV1",
+  "description": "题目规定的最终 JSON 数组，写回前必须校验并成功序列化。",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "description": "一条费用的最终操作结果；由代码构建并在提交前校验，不能让模型直接生成",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "CREATE",
+          "UPDATE",
+          "NO_CHANGE",
+          "PENDING_REVIEW"
+        ]
+      },
+      "document_info": {
+        "type": "object",
+        "description": "单据信息",
+        "properties": {
+          "document_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "程序整理的单据类型"
+          },
+          "reference_no": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "标准化后的单据号，原始值留在内部审计"
+          },
+          "document_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "format": "date",
+            "description": "程序校验后的单据日期；仅在原文日期无歧义时转为 YYYY-MM-DD，否则 null"
+          }
+        },
+        "required": [
+          "document_type",
+          "reference_no",
+          "document_date"
+        ],
+        "additionalProperties": false
+      },
+      "transaction_party": {
+        "type": "object",
+        "description": "交易双方",
+        "properties": {
+          "issuer": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "程序标准化或继承的签发方"
+          },
+          "recipient": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "程序标准化或继承的接收方"
+          }
+        },
+        "required": [
+          "issuer",
+          "recipient"
+        ],
+        "additionalProperties": false
+      },
+      "charge_details": {
+        "type": "object",
+        "description": "费用信息；UPDATE 采用历史值与允许变更字段合成后的最终状态",
+        "properties": {
+          "charge_item": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "代码标准化后的费用名称"
+          },
+          "amount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "费用金额；JSON number；不能为 NaN 或 Infinity，按业务规则决定是否接受负数"
+          },
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Z]{3}$",
+            "description": "证据能唯一确定的三位大写币种代码；仅有歧义符号时为 null，实际 ISO 4217 有效性由代码校验"
+          },
+          "payment_term": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "PP",
+              "CC",
+              null
+            ],
+            "description": "仅在付款语境和证据明确时归为 PP 或 CC，其他情况为 null；不得由文档类型推断"
+          }
+        },
+        "required": [
+          "charge_item",
+          "amount",
+          "currency",
+          "payment_term"
+        ],
+        "additionalProperties": false
+      },
+      "financial_attributes": {
+        "type": "object",
+        "description": "记账属性",
+        "properties": {
+          "accounting_entity": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "调用方提供并由代码解析的记账主体"
+          },
+          "posting_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "AR",
+              "AP",
+              null
+            ],
+            "description": "由代码基于记账主体与收费方向判断"
+          }
+        },
+        "required": [
+          "accounting_entity",
+          "posting_type"
+        ],
+        "additionalProperties": false
+      },
+      "audit_trail": {
+        "type": "object",
+        "description": "题目固定的对外审计字段，完整证据另存内部审计",
+        "properties": {
+          "ai_reasoning": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "非空字符串"
+            },
+            "minItems": 1,
+            "description": "由程序根据证据、规则、差异和冲突生成的中文处理依据，不要求模型输出思维过程"
+          }
+        },
+        "required": [
+          "ai_reasoning"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "operation",
+      "document_info",
+      "transaction_party",
+      "charge_details",
+      "financial_attributes",
+      "audit_trail"
+    ],
+    "additionalProperties": false
+  },
+  "$comment": "运行时契约 v1；JSON Schema 校验后仍必须执行证据、归属、金额及写回门禁。"
+}

@@ -1,0 +1,83 @@
+{
+  "status": "RUNTIME_V2_WITH_BOUND_FACT_EVIDENCE",
+  "version": "2.0.0",
+  "contracts": {
+    "extraction": "extraction-v2.schema.json",
+    "assignment_output": "assignment-output-v1.schema.json"
+  },
+  "strict_generation": [
+    "所有声明键 required、对象禁止额外字段；每个事实字段输出 {value, source_line_ids}；集合缺省为 []",
+    "事实字段不得凭空补值，编号保持原始字符串；不统一替换 0/O 或 1/I",
+    "金额数量等的 value 使用 JSON number 或 null；本地解析保留十进制精度并检查有限值",
+    "模型只返回输入中支持的事实、证据引用和明确的修改请求",
+    "事实只能二选一：value=null 且 source_line_ids=[]；或 value 非空且 source_line_ids 至少一项，每项必须是本次输入提供的行 ID"
+  ],
+  "program_generated_fields": [
+    "schema_version",
+    "source_id",
+    "source_file",
+    "file_hash",
+    "parent_source",
+    "source_type",
+    "page/sheet/table/cell/line 坐标目录",
+    "charge_id/line identity",
+    "canonical charge_item",
+    "normalized identifiers and parties",
+    "accounting_entity",
+    "posting_type",
+    "operation",
+    "matched_bill_id",
+    "match_strategy",
+    "changed_fields",
+    "conflicts",
+    "quality assessment",
+    "ai_reasoning"
+  ],
+  "evidence_contract": {
+    "generation": "程序在调用前建立稳定行 ID；可识别页、sheet、表格和文本行位置。当前 Office 文本不具备原始单元格坐标，不伪造坐标。",
+    "validation": "引用与字段值在同一对象绑定；Schema 强制完整性并限制本次行 ID 枚举；解包后 A07 继续检查原文支持关系、费用行关联及修改指令",
+    "retention": "引用解析为原文和位置后保存内部审计；对外标准 JSON 不增加证据字段",
+    "missing": "事实缺证据可保留为候选，但不得自动写入",
+    "type_rule": "v2 的 document_type 与 document_type_raw 都必须独立携带引用；原有 v1 同行补证仅保留为历史适配逻辑，v2 不依赖补证绕过完整性校验",
+    "scope": "单据标量、每个箱号、每条费用的标量/箱号、每个币种汇总的标量均绑定引用；观察和变更请求继续使用各自元数据及组级引用"
+  },
+  "operation_gates": {
+    "CREATE": [
+      "历史数据源已正确加载且查询范围明确",
+      "费用名、有限金额、有效币种、记账主体、AR/AP 等入账字段有效",
+      "具备可验证身份和来源证据",
+      "无可靠匹配、疑似重复、编号混淆、强字段冲突或未解决异常"
+    ],
+    "UPDATE": [
+      "唯一且归属正确的历史记录",
+      "只应用原文明示或输入业务契约明确授权的字段变更",
+      "以历史值和允许变更合成完整最终状态，未知或省略字段不清空",
+      "币种、身份等高风险变更按业务规则复核；CLEAR 默认不自动执行"
+    ],
+    "NO_CHANGE": [
+      "可靠匹配且无允许应用的实质变更",
+      "不能仅依据当前 Agent 内存中的重复标记证明已入账"
+    ],
+    "PENDING_REVIEW": [
+      "保留候选事实、证据与原因，可缺失业务值",
+      "不产生写入计划；候选历史记录不得被当成已确认匹配"
+    ]
+  },
+  "financial_rules": [
+    "按币种分别校验，不能跨币种相加",
+    "tax、discount 等 null 表示未知，不能自动按 0 代入",
+    "只按原文支持的组成关系核对合计，差额和舍入阈值由代码配置",
+    "不在 Schema 层禁止所有负金额，Credit Note 等由业务规则处理"
+  ],
+  "change_request_rules": [
+    "普通账单事实与显式修改请求分开保存",
+    "new_value_text 保持原文；转换后的金额、日期、付款方式由代码校验",
+    "field_path 必须存在并在允许变更范围内；CLEAR 不等于字段缺失或 null"
+  ],
+  "migration_requirements": [
+    "严格 Schema、按请求行号枚举、本地证据校验、多逻辑单据、分币种汇总和最终校验前置已接入",
+    "显式 SET 仅自动应用金额和付款方式；CLEAR 和其他字段修改转复核",
+    "旧保存结果仅通过专用重放器进入内部模型，不能被生产抽取器当作新契约接受",
+    "原始单元格坐标、复杂跨表关联和全格式准确率仍需独立验证"
+  ]
+}

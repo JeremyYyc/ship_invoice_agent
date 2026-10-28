@@ -63,9 +63,7 @@ class NormalizationService:
     def normalize_document(self, document: ExtractedDocument) -> ExtractedDocument:
         return self.normalize_document_with_audit(document).document
 
-    def normalize_document_with_audit(
-        self, document: ExtractedDocument
-    ) -> "NormalizedDocument":
+    def normalize_document_with_audit(self, document: ExtractedDocument) -> "NormalizedDocument":
         result = document.model_copy(deep=True)
         result.reference_no = normalize_identifier(result.reference_no) or result.reference_no
         result.master_bill_of_lading_no = (
@@ -85,7 +83,7 @@ class NormalizationService:
         for charge in result.charges:
             resolution = self.charge_resolver.resolve(
                 model_name=charge.charge_item,
-                original_name=charge.original_charge_item,
+                original_name=charge.original_charge_item or "",
                 source_text=charge.source_text,
             )
             charge.charge_item = resolution.canonical_name

@@ -9,7 +9,7 @@ from ship_invoice_agent.extraction import InvoiceExtractor
 from ship_invoice_agent.models import RawDocument
 
 
-def test_prompt_mode_returns_schema_valid_document():
+def test_prompt_mode_returns_schema_valid_document(wire_response):
     response = {
         "document_type": "Debit Note",
         "reference_no": "DN-100",
@@ -24,13 +24,16 @@ def test_prompt_mode_returns_schema_valid_document():
             }
         ],
     }
-    extractor = InvoiceExtractor(FakeListChatModel(responses=[json.dumps(response)]))
     document = RawDocument(
         source_path=Path("invoice.pdf"),
         source_name="invoice.pdf",
         source_type="pdf",
-        content='{"text":"H/C USD 65"}',
+        content="Debit Note DN-100\nCarrier Ltd\nImporter Ltd\nH/C USD 65",
         file_hash="abc",
+    )
+    extractor = InvoiceExtractor(
+        FakeListChatModel(responses=[json.dumps(wire_response(document, response))]),
+        structured_output_mode="prompt",
     )
 
     extracted = extractor.extract(document)
@@ -58,6 +61,7 @@ def test_extractor_retries_only_once():
     model = AlwaysFailingModel()
     extractor = InvoiceExtractor(
         model,
+        structured_output_mode="prompt",
         request_timeout_seconds=60,
         total_time_budget_seconds=130,
         max_retries=1,
@@ -82,6 +86,7 @@ def test_extractor_does_not_retry_when_budget_cannot_cover_another_request(monke
     monkeypatch.setattr("ship_invoice_agent.extraction.chain.time.monotonic", lambda: next(clock))
     extractor = InvoiceExtractor(
         model,
+        structured_output_mode="prompt",
         request_timeout_seconds=60,
         total_time_budget_seconds=120,
         max_retries=1,
@@ -103,6 +108,7 @@ def test_extractor_does_not_retry_when_budget_cannot_cover_another_request(monke
 def test_schema_failure_is_not_misclassified_as_timeout():
     extractor = InvoiceExtractor(
         InvalidResponseModel(),
+        structured_output_mode="prompt",
         request_timeout_seconds=60,
         total_time_budget_seconds=130,
         max_retries=1,

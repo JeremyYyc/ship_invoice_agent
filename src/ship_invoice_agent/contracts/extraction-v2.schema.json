@@ -1,0 +1,715 @@
+{
+  "type": "object",
+  "description": "航运账单抽取契约 v2：每个事实值与原文行引用绑定；非空值必须有引用，未知值为 {value:null,source_line_ids:[]}；集合缺省为 []",
+  "properties": {
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/document"
+      },
+      "minItems": 0,
+      "description": "按原文识别的逻辑单据；不能因同一文件或同一 sheet 就强行合并独立账单；无可抽取单据为 []"
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/observation"
+      },
+      "minItems": 0,
+      "description": "输入级异常或无法归属具体单据的观察"
+    }
+  },
+  "required": [
+    "documents",
+    "observations"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ship-invoice-agent:extraction:v2",
+  "$comment": "运行时抽取契约 v2；Schema 强制引用完整性，本地仍验证原文支持关系。最终 assignment-output 仍为 v1。",
+  "$defs": {
+    "document": {
+      "type": "object",
+      "description": "一份逻辑单据及其费用、汇总、证据和显式变更指令",
+      "properties": {
+        "document_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_document_type"
+            }
+          ],
+          "description": "有证据的文档类型；识别到其他明确类型用 OTHER，无法确定用 null"
+        },
+        "document_type_raw": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文中的单据标题或类型文字，原文未明确写出则为 null"
+        },
+        "reference_no": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原始单据编号，保留前导零、大小写、全半角与分隔符，不纠正 0/O 或 1/I"
+        },
+        "document_date": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_date"
+            }
+          ],
+          "description": "原文单据日期；仅在原文日期无歧义时转为 YYYY-MM-DD，否则 null"
+        },
+        "issuer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文签发方名称；不能把发件人直接当成签发方"
+        },
+        "recipient": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文接收方名称；不能把收件邮箱直接当成接收方"
+        },
+        "payer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文明确的付款方；不能仅根据文档类型或主体位置推断"
+        },
+        "payee": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文明确的收款方；角色不确定则为 null"
+        },
+        "master_bill_of_lading_no": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原始主提单号，保留所有原始字符，不与分提单号互换"
+        },
+        "house_bill_of_lading_no": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原始分提单号，保留所有原始字符，不与主提单号互换"
+        },
+        "booking_no": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原始订舱号，保持字符串，不丢前导零"
+        },
+        "container_numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cited_text",
+            "description": "非空字符串"
+          },
+          "minItems": 0,
+          "description": "原文属于当前逻辑单据的箱号；保留原始字符串，不纠正字符"
+        },
+        "vessel": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文船名"
+        },
+        "voyage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文航次，保持字符串"
+        },
+        "port_of_loading": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文装货港，不用航运常识补全"
+        },
+        "port_of_discharge": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文卸货港，不用航运常识补全"
+        },
+        "eta": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_date"
+            }
+          ],
+          "description": "原文预计到港日期；仅在原文日期无歧义时转为 YYYY-MM-DD，否则 null"
+        },
+        "etd": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_date"
+            }
+          ],
+          "description": "原文预计离港日期；仅在原文日期无歧义时转为 YYYY-MM-DD，否则 null"
+        },
+        "charges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/charge"
+          },
+          "minItems": 0,
+          "description": "当前逻辑单据的真实费用行；只更新付款方式时金额允许为 null；无费用则为空数组"
+        },
+        "totals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/total"
+          },
+          "minItems": 0,
+          "description": "按原文币种分组的汇总；不强制汇总一定存在"
+        },
+        "change_requests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/change_request"
+          },
+          "minItems": 0,
+          "description": "原文明示的修改指令；无明确修改指令则为空数组"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          },
+          "minItems": 0,
+          "description": "当前逻辑单据的不确定性与冲突观察；无则为空数组"
+        }
+      },
+      "required": [
+        "document_type",
+        "document_type_raw",
+        "reference_no",
+        "document_date",
+        "issuer",
+        "recipient",
+        "payer",
+        "payee",
+        "master_bill_of_lading_no",
+        "house_bill_of_lading_no",
+        "booking_no",
+        "container_numbers",
+        "vessel",
+        "voyage",
+        "port_of_loading",
+        "port_of_discharge",
+        "eta",
+        "etd",
+        "charges",
+        "totals",
+        "change_requests",
+        "observations"
+      ],
+      "additionalProperties": false
+    },
+    "charge": {
+      "type": "object",
+      "description": "一条原文费用行；同名或同金额的不同原文行必须保留，去重由代码判断",
+      "properties": {
+        "original_charge_item": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_text"
+            }
+          ],
+          "description": "原文中的费用名称，不改写为标准名；无法可靠读取时为 null"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "原文明确出现的数量；未知为 null，不默认补 1"
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "原文明确出现的单价；未知为 null，不从金额反推"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "当前费用行明确出现的金额；未知为 null；保留原文正负，不推算，不强制非负"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_currency"
+            }
+          ],
+          "description": "证据能唯一确定的三位大写币种代码；仅有歧义符号时为 null，实际 ISO 4217 有效性由代码校验"
+        },
+        "payment_term": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_payment_term"
+            }
+          ],
+          "description": "仅在付款语境和证据明确时归为 PP 或 CC，其他情况为 null；不得由文档类型推断"
+        },
+        "container_numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cited_text",
+            "description": "非空字符串"
+          },
+          "minItems": 0,
+          "description": "仅列出明确属于该费用行的原始箱号；没有行级归属证据则为空，不能复制整份单据的箱号"
+        }
+      },
+      "required": [
+        "original_charge_item",
+        "quantity",
+        "unit_price",
+        "amount",
+        "currency",
+        "payment_term",
+        "container_numbers"
+      ],
+      "additionalProperties": false
+    },
+    "total": {
+      "type": "object",
+      "description": "按原文币种分组的金额汇总；没有汇总证据则不生成记录",
+      "properties": {
+        "currency": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_currency"
+            }
+          ],
+          "description": "证据能唯一确定的三位大写币种代码；仅有歧义符号时为 null，实际 ISO 4217 有效性由代码校验"
+        },
+        "subtotal": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "该币种的原文小计，未知为 null"
+        },
+        "tax": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "该币种的原文税额，未知为 null；未知不能按 0 处理"
+        },
+        "discount": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "该币种的原文折扣数值，保留原文正负；对总额的作用由代码结合原文判断"
+        },
+        "total": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unknown_fact"
+            },
+            {
+              "$ref": "#/$defs/cited_number"
+            }
+          ],
+          "description": "该币种的原文总计，未知为 null；不得将其他币种金额相加"
+        }
+      },
+      "required": [
+        "currency",
+        "subtotal",
+        "tax",
+        "discount",
+        "total"
+      ],
+      "additionalProperties": false
+    },
+    "change_request": {
+      "type": "object",
+      "description": "仅用于显式变更指令；普通账单字段与历史不同，不能因此伪造修改指令",
+      "properties": {
+        "field_path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "原文明示修改的字段，相对当前 documents[i] 的 JSON Pointer，例如 /charges/0/payment_term"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "SET",
+            "CLEAR"
+          ],
+          "description": "原文明确提出设置或清空；这是变更意图的抽取，不是执行授权"
+        },
+        "new_value_text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "原文要求的新值文本；CLEAR 时必须为 null；SET 的目标值未知时为 null 并由代码转复核"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "非空字符串"
+          },
+          "minItems": 1,
+          "description": "直接包含修改指令的证据行 ID"
+        }
+      },
+      "required": [
+        "field_path",
+        "action",
+        "new_value_text",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "description": "模型对原文的异常观察；不直接构成业务决策",
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "OCR_UNCERTAIN",
+            "CONFLICTING_VALUES",
+            "AMBIGUOUS_CURRENCY",
+            "AMBIGUOUS_DATE",
+            "INCOMPLETE_CHARGE",
+            "NON_BILLING_CONTENT",
+            "OTHER"
+          ]
+        },
+        "field_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "非空字符串"
+          },
+          "minItems": 0,
+          "description": "涉及的字段路径；未知具体字段时为空数组"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "非空字符串"
+          },
+          "minItems": 0,
+          "description": "引用程序提供的稳定证据行 ID；必须属于本次输入的证据目录"
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1,
+          "description": "简短描述观察到的不确定性，不包含是否入账或操作判定"
+        }
+      },
+      "required": [
+        "code",
+        "field_paths",
+        "source_line_ids",
+        "detail"
+      ],
+      "additionalProperties": false
+    },
+    "source_line_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "程序提供的本次输入行 ID；运行时限制为目录中的枚举值"
+    },
+    "unknown_fact": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "null"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "maxItems": 0
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false,
+      "description": "没有可提取事实时使用 null 和空引用，禁止给未知值附上引用"
+    },
+    "cited_document_type": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "INVOICE",
+            "DEBIT_NOTE",
+            "CREDIT_NOTE",
+            "ARRIVAL_NOTICE",
+            "PRE_ALERT",
+            "BILL_OF_LADING",
+            "OTHER"
+          ]
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "cited_text": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "cited_date": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "format": "date"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "cited_number": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "cited_currency": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    },
+    "cited_payment_term": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "PP",
+            "CC"
+          ]
+        },
+        "source_line_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_line_id"
+          },
+          "minItems": 1,
+          "description": "至少一个直接支持 value 的程序行 ID；可以与其他字段共享行 ID"
+        }
+      },
+      "required": [
+        "value",
+        "source_line_ids"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "title": "InvoiceExtractionV2"
+}

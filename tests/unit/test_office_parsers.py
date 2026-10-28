@@ -104,7 +104,9 @@ def test_excel_preserves_numeric_amounts_cached_total_and_text_identifier(sample
 
 @pytest.mark.parametrize("sample", SAMPLES, ids=lambda sample: sample["name"])
 @pytest.mark.parametrize("suffix", ["xlsx", "docx"])
-def test_office_workflow_with_fake_model_preserves_charge_rows(sample, suffix, tmp_path):
+def test_office_workflow_with_fake_model_preserves_charge_rows(
+    sample, suffix, tmp_path, wire_response
+):
     """Verify native reading and downstream rules; model accuracy requires a separate live run."""
     project = FIXTURES.parents[1]
     path = FIXTURES / "documents" / f"{sample['name']}.{suffix}"
@@ -118,11 +120,12 @@ def test_office_workflow_with_fake_model_preserves_charge_rows(sample, suffix, t
         accounting_entities_path=project / "data/accounting_entities.json",
         apply_bill_changes=False,
     )
-    model = FakeListChatModel(responses=[json.dumps(sample["document"])])
+    raw = DocumentRouter(settings, NoOCRClient()).parse(path)[0]
+    model = FakeListChatModel(responses=[json.dumps(wire_response(raw, sample["document"]))])
     agent = InvoiceAgent(
         settings,
         DocumentRouter(settings, NoOCRClient()),
-        InvoiceExtractor(model),
+        InvoiceExtractor(model, structured_output_mode="prompt"),
         JsonBillRepository(history_path),
     )
 
@@ -130,7 +133,11 @@ def test_office_workflow_with_fake_model_preserves_charge_rows(sample, suffix, t
 
     expected = sample["document"]
     assert len(operations) == len(expected["charges"])
-    assert all(operation.operation == Operation.CREATE for operation in operations)
+    # A previously unknown OCA name now requires review instead of automatic posting.
+    expected_operation = (
+        Operation.PENDING_REVIEW if sample["name"] == "arrival-notice" else Operation.CREATE
+    )
+    assert all(operation.operation == expected_operation for operation in operations)
     assert Counter(
         (
             operation.charge_details.charge_item,
@@ -139,7 +146,7 @@ def test_office_workflow_with_fake_model_preserves_charge_rows(sample, suffix, t
         )
         for operation in operations
     ) == Counter(
-        (charge["charge_item"], charge["amount"], charge["currency"])
+        (charge["charge_item"], Decimal(str(charge["amount"])), charge["currency"])
         for charge in expected["charges"]
     )
     for operation in operations:
@@ -147,9 +154,9 @@ def test_office_workflow_with_fake_model_preserves_charge_rows(sample, suffix, t
         assert operation.financial_attributes.posting_type == sample["posting_type"]
         assert operation.audit_trail.source_file == path.name
     assert sum(operation.charge_details.amount for operation in operations) == pytest.approx(
-        expected["total"]
+        Decimal(str(expected["total"]))
     )
     public = json.loads(serialize_operations(operations))
     assert len(public) == len(expected["charges"])
-    assert all(row["operation"] == "CREATE" for row in public)
+    assert all(row["operation"] == expected_operation for row in public)
     assert history_path.read_bytes() == b"[]"

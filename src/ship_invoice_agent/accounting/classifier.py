@@ -17,9 +17,14 @@ def classify_posting(
     issuer = normalize_text(document.issuer)
     recipient = normalize_text(document.recipient)
     payee = normalize_text(document.payee)
-    if entity and entity in {issuer, payee}:
+    payer = normalize_text(document.payer)
+    receivable = bool(entity and entity in {issuer, payee})
+    payable = bool(entity and entity in {recipient, payer})
+    if receivable and payable:
+        return None, ["ACCOUNTING_ENTITY_ROLE_UNRESOLVED"]
+    if receivable:
         return PostingType.AR, ["accounting entity is issuer/payee"]
-    if entity and entity == recipient:
+    if payable:
         return PostingType.AP, ["accounting entity is recipient"]
     return None, ["ACCOUNTING_ENTITY_ROLE_UNRESOLVED"]
 

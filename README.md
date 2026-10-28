@@ -7,7 +7,7 @@ JSON 历史账单完成新增、更新、去重、冲突检测和 AR/AP 判断�
 
 - PDF/图片调用题目给定的 OCR HTTP 请求契约。
 - 本地提供一个使用 Tesseract 的黑盒 OCR 服务。
-- 主程序不读取任何厂商特定 OCR JSON 字段，而是将清理后的完整 JSON 交给抽取 Chain。
+- OCR Adapter 将已支持的响应转为带页码的文本；未知结构回退为清理后的 JSON。
 - 此方案要求企业 OCR JSON 中包含可读的文本/表格；异步任务、加密数据或二次查询需要后续适配。
 - 默认只读 JSON 账单库；只有显式 `--apply` 才写回。
 - 没有 Web 界面或数据库。
@@ -21,15 +21,15 @@ EML / PDF / Image / Excel / Word
                   |
              RawDocument
                   |
-       LangChain + Pydantic parser
+       Strict JSON Schema extraction
                   |
-          ExtractedDocument
+   documents[] + verified evidence
                   |
  normalization / validation / matching
                   |
  CREATE / UPDATE / NO_CHANGE / PENDING_REVIEW
                   |
-          strict JSON array
+   validate/serialize -> apply -> JSON array
 ```
 
 模型负责语义抽取；费用标准化、数字校验、历史匹配、冲突判定和写回都是确定性 Python 逻辑。
@@ -54,7 +54,7 @@ cp .env.example .env
 ```dotenv
 LLM_PROTOCOL=openai_compatible
 LLM_PROVIDER=qwen
-LLM_MODEL_NAME=qwen-plus
+LLM_MODEL_NAME=qwen3.8-flash
 LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 LLM_API_KEY=sk-your-key
 ```
@@ -80,12 +80,15 @@ LLM_MODEL_NAME=your-model-id
 并安装对应 extra，如 `pip install -e ".[anthropic]"`。原生 Provider 的凭证按其官方 LangChain
 集成文档配置。
 
-第一版默认 `LLM_STRUCTURED_OUTPUT_MODE=prompt`，通过 JSON 指令 + Pydantic 校验获得更好的跨模型
-兼容性，不强依赖厂商原生 JSON Schema。
+默认 `LLM_STRUCTURED_OUTPUT_MODE=native`，显式调用 `json_schema + strict=True`。
+`prompt` 是必须手动选择的兼容模式，也执行同一套本地 JSON Schema 和证据校验；
+接口不支持严格 Schema 或返回配置错误时直接失败，不会静默降级。
+默认模型为 `qwen3.8-flash`，替换模型后运行 `check-model` 检查实际契约兼容性。
 
 模型调用默认采用 115 秒单次超时、每份 `RawDocument` 235 秒总预算以及一次应用层重试。
-Provider SDK 的内部重试被关闭，避免重试次数相乘。两次调用均失败或剩余预算不足时，
-当前文档输出 `PENDING_REVIEW`，并继续处理同一输入中的其他附件。三个参数可通过
+Provider SDK 的内部重试被关闭，避免重试次数相乘。抽取或 Schema 校验耗尽重试预算时，
+当前文档输出 `PENDING_REVIEW`，并继续处理同一输入中的其他附件。拒绝或输出截断直接转复核；
+不可重试的 4xx 配置错误停止任务。三个参数可通过
 `LLM_TIMEOUT_SECONDS`、`LLM_TOTAL_TIME_BUDGET_SECONDS` 和 `LLM_MAX_RETRIES` 调整。
 
 Qwen 的思考模式默认显式关闭：`LLM_ENABLE_THINKING=false`。在 Qwen 的
@@ -141,7 +144,7 @@ curl http://127.0.0.1:8001/health
 
 ## 使用
 
-先检查模型的 JSON 能力：
+先使用合成数据检查模型的严格抽取契约和原文证据能力：
 
 ```bash
 ship-invoice-agent check-model
@@ -221,6 +224,47 @@ stdout 只有最终 JSON，日志写到 stderr。
 仅在本地调试或保存内部诊断时可设置 `OUTPUT_SCHEMA_MODE=internal`；交付和验收环境必须保持
 `assignment`。
 
+## 严格抽取契约和写回流程
+
+运行时契约在 `src/ship_invoice_agent/contracts/`；`schemas/draft/` 保留可读的同版本副本，
+回归测试检查两者一致。当前抽取契约为 `extraction-v2.schema.json`，最终输出仍为
+`assignment-output-v1.schema.json`。所有对象禁止额外字段，声明键必须出现。
+抽取事实采用 `{"value": ..., "source_line_ids": [...]}`：非空值至少引用一行，未知值必须是
+`{"value": null, "source_line_ids": []}`；箱号等集合的每个元素也携带引用，空集合为 `[]`。
+编号值保持字符串，金额值必须为有限 JSON 数字，解析时保留 Decimal 精度。
+金额在匹配、内部模型、JSON 输出和账单存储中均保留 Decimal 精度，不通过 float 中转。
+
+- LLM 返回 `documents[]`，每份逻辑单据包含原始身份、交易角色、费用、分币种汇总、证据和显式变更请求。
+- 程序为输入文本建立稳定行 ID，保留可识别的页码、sheet、表格和文本行位置。
+  当前原生 Office 解析仍是展平文本，证据不宣称具备原始单元格坐标。
+- 原生请求把可引用行 ID 限定为本次输入的枚举，通过 `anyOf` 强制非空值与非空引用一起生成。
+  本地也执行同一完整性与行 ID 校验，再解包为原有内部字段和证据路径，继续执行 A07 原文支持核验。
+  `document_type` 与 `document_type_raw` 各自必须有引用；不能仅靠提示词要求，也不依赖同行补证。
+  v1 Schema 和历史报告保留用于追溯；生产抽取不静默接受旧版平铺值与独立 `evidence[]`。
+- 标准费用名、AR/AP、历史匹配、操作类型和中文审计由代码生成。新契约不使用模型自报置信度。
+  已应用记录的证据和处理时间保存在历史账单 `audit_history`；待复核记录的完整诊断可用
+  `OUTPUT_SCHEMA_MODE=internal` 保存，题目标准输出只保留规定的审计字段。
+- 缺少证据、未知标准费用、缺关键入账字段、身份混淆或角色冲突时转复核。
+  OCA 等尚未进入词表的费用会因此进入复核。`ADD'L DETENTION FREE TIME CHARGE` 已补入别名。
+- 新契约下，差异更新需要可验证的 `change_requests`。目前仅自动处理金额和付款方式的 SET；
+  CLEAR 及其他字段的变更请求转复核。局部更新可以没有金额，其余字段继承历史记录。
+- 每个任务独立去重，在历史账单副本中生成计划；预览不修改正式库或跨任务状态。
+- 最终题目 Schema 校验及 JSON 序列化通过后才写回，失败时不修改正式内存或文件。
+  提交使用排他锁文件和历史版本检查；冲突时停止并要求重建计划，不覆盖新数据。
+  进程异常退出可能遗留 `.lock`；确认无写入进程后再人工清理，不自动抢占。
+
+本次 v2 只修改事实与引用的绑定。观察的风险分级、文档级问题传播及无费用附件出口仍保持现有策略。
+本地全量测试归档位于 `test-results/20261028T173750+0800-live-full-v2/summary.json`，未随代码发布。
+10 个输入文件及
+邮件内 3 个附件完成真实测试，240 个非空事实都有引用；7 条 CREATE 在隔离库写入并验证重复处理
+不再写入，16 条结果仍待复核。因此当前通过引用完整性和写入安全验证，尚未通过完整业务验收。
+已知问题包括正常数字规范化被观察门禁误拦截、免费说明误抽、无费用附件产生空复核记录，
+以及部分主体/费用映射不明确和图片 OCR 金额错误；详见同目录 `findings.json`。
+原始模型响应、测试快照与排查流程图仅在本地保留；v2 抽取格式以本节为准。
+
+`check-model --report-dir <新目录>` 可保存合成探针原文、原始模型响应和适配后的结果。
+它不会发送项目账单，且任何证据检查失败都会返回非零退出码。
+
 ## 匹配和冲突
 
 JSON 账单数据在 `data/existing_bills.json`。匹配优先级：
@@ -232,10 +276,21 @@ JSON 账单数据在 `data/existing_bills.json`。匹配优先级：
 
 决策：
 
-- 无候选：`CREATE`。
+- 常规匹配无候选且无混淆字符候选：`CREATE`。
 - 唯一候选且相同：`NO_CHANGE`。
 - 唯一候选且明确字段变化：`UPDATE`。
 - 多候选、币种/交易方冲突、合计不一致、低置信度或 AR/AP 无法判定：`PENDING_REVIEW`。
+
+在返回 `CREATE` 前，检查同一标准费用名称下的历史单据号、主/分提单号、订舱号和箱号。
+如果编号在常规标准化后仅有 `0/O`、`1/I` 差异，则视为疑似 OCR 混淆候选，
+返回 `PENDING_REVIEW`；即使只有一个候选、金额相同或抽取置信度较高，也不会自动确认或纠正编号。
+主/分提单号可交叉比较，其他类型的编号仅在同类型字段之间比较。
+已通过常规策略确定的匹配仍按原规则处理。
+
+例如历史单据号为 `00yyc`，本次识别为 `OOyyc` 且其他策略均未匹配时，暂停新增。
+内部审计 `conflicts` 保留原始识别值、标准化值、候选编号、候选字段及候选账单 ID；
+标准输出的中文 `ai_reasoning` 同样展示原始识别值和候选编号、账单 ID。
+同一输入重复出现也保持 `PENDING_REVIEW`，候选记录不会自动写回。
 
 默认不修改 JSON 账单库。要写回：
 
@@ -277,6 +332,7 @@ pytest tests/unit/test_office_parsers.py -q
 这组离线测试验证原生文档路由不调用 OCR、段落和费用表格内容保留、Excel 数值类型和
 公式缓存合计、前导零编号，以及使用假模型输出后的费用标准化、AR/AP 和 JSON 输出。
 离线测试不验证真实模型的抽取准确率；旧式 `.xls`、`.doc` 不在本轮样例范围内。
+新契约的 Office 假模型回归包含证据校验；未知 OCA 费用预期转复核。
 
 如需调用 `.env` 配置的真实模型，可在获得文档外发授权后运行：
 
