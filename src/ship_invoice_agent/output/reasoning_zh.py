@@ -7,11 +7,10 @@ _REASON_TRANSLATIONS = {
     "one exact record found among multiple identity candidates": (
         "在多个标识匹配候选中找到一条完全一致的记录"
     ),
-    "multiple historical bills match the same charge identity": (
-        "多条历史账单匹配同一费用标识"
-    ),
-    "no historical bill matched the configured strategies": (
-        "未找到符合已配置匹配策略的历史账单"
+    "multiple historical bills match the same charge identity": ("多条历史账单匹配同一费用标识"),
+    "no historical bill matched the configured strategies": ("未找到符合已配置匹配策略的历史账单"),
+    "possible OCR identifier confusion requires manual confirmation": (
+        "编号疑似存在 0/O、1/I OCR 字符混淆，需人工确认历史记录，暂停新增"
     ),
     "identity matched but strong fields conflict": "账单标识匹配，但关键字段存在冲突",
     "historical bill and extracted charge have the same material values": (
@@ -49,6 +48,15 @@ _WARNING_TRANSLATIONS = {
     "LLM_EXTRACTION_FAILED": "模型抽取失败",
     "LLM_TIME_BUDGET_EXHAUSTED": "模型抽取时间预算已耗尽",
     "DUPLICATE_IN_CURRENT_BATCH": "当前批次中存在重复费用",
+    "LLM_SCHEMA_VALIDATION_FAILED": "模型输出未通过结构化契约校验",
+    "HISTORY_SOURCE_UNAVAILABLE": "历史账单数据源不存在，不能视为已确认的空库",
+    "INPUT_TRUNCATED": "输入文本被截断，无法确认费用完整性",
+    "UNKNOWN_CHARGE_REQUIRES_REVIEW": "未知标准费用名称需要人工确认",
+    "REQUIRED_FINANCIAL_FIELDS_MISSING": "缺少自动处理所需的费用、金额或币种",
+    "DOCUMENT_IDENTITY_MISSING": "缺少可验证的单据或物流身份信息",
+    "ACCOUNTING_ENTITY_CONFLICT": "历史账单与本次记账主体不一致",
+    "CHARGE_ROW_ASSOCIATION_UNVERIFIED": "费用名称与金额的来源行关联尚未确认",
+    "DUPLICATE_EXTRACTED_ROW": "同一原文费用行被重复抽取，需人工核对",
 }
 
 _FIELD_TRANSLATIONS = {
@@ -58,6 +66,11 @@ _FIELD_TRANSLATIONS = {
     "issuer": "出票方",
     "recipient": "收件方",
     "charge_item": "费用名称",
+    "reference_no": "单据编号",
+    "master_bill_of_lading_no": "主提单号",
+    "house_bill_of_lading_no": "分提单号",
+    "booking_no": "订舱号",
+    "container_numbers": "箱号",
 }
 
 _ALIAS_REASON_PATTERNS = (
@@ -74,9 +87,7 @@ _ALIAS_REASON_PATTERNS = (
         "根据模型费用名称映射为{value}",
     ),
     (
-        re.compile(
-            r"^model proposed (.+); deterministic evidence took precedence$"
-        ),
+        re.compile(r"^model proposed (.+); deterministic evidence took precedence$"),
         "模型建议费用名称为{value}，最终以确定性原始证据为准",
     ),
 )
@@ -90,6 +101,8 @@ def build_assignment_reasoning(audit_trail: AuditTrail) -> list[str]:
     )
     reasoning.extend(_format_conflict(item) for item in audit_trail.conflicts)
     reasoning.extend(_translate_warning(warning) for warning in audit_trail.warnings)
+    if audit_trail.schema_version:
+        reasoning.append(f"来源文件：{audit_trail.source_file}")
     return list(dict.fromkeys(reasoning))
 
 
@@ -107,6 +120,13 @@ def _translate_warning(warning: str) -> str:
         return translated
     parts = warning.split(":")
     code = parts[0]
+    if code in {"UNSUPPORTED_FACT", "INVALID_EVIDENCE"}:
+        field = parts[1] if len(parts) > 1 else "未知字段"
+        return f"字段 {field} 缺少可核验的原文证据"
+    if code == "UNVERIFIED_CHANGE_REQUEST":
+        return "原文修改指令未通过证据或允许变更范围校验"
+    if code == "EXTRACTION_OBSERVATION":
+        return "模型标记原文存在歧义或不确定性，需人工核对"
     if code == "POSSIBLE_OCR_CHARACTER_CONFUSION":
         return f"第{_one_based_index(parts)}条费用可能存在 OCR 字符混淆"
     if code == "NEGATIVE_AMOUNT":
@@ -127,8 +147,17 @@ def _format_change(field: str, values: dict[str, Any]) -> str:
 
 
 def _format_conflict(item: dict[str, Any]) -> str:
+    if item.get("code") == "UPDATE_INTENT_UNCONFIRMED":
+        return "本次字段与历史值有差异，但缺少可验证的明确修改指令"
     field = str(item.get("field", "unknown"))
     label = _FIELD_TRANSLATIONS.get(field, field)
+    if item.get("code") == "POSSIBLE_OCR_IDENTIFIER_CONFUSION":
+        candidate_label = _FIELD_TRANSLATIONS.get(item["candidate_field"], item["candidate_field"])
+        return (
+            f"字段“{label}”疑似 OCR 字符混淆：原始识别值为 {item['extracted_value']}，"
+            f"候选历史{candidate_label}为 {item['candidate_value']}"
+            f"（账单 {item['candidate_bill_id']}），需人工核对"
+        )
     return (
         f"字段“{label}”存在冲突：历史值为 {item.get('existing_value')}，"
         f"提取值为 {item.get('extracted_value')}"

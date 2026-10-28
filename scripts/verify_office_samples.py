@@ -37,15 +37,31 @@ class RecordingExtractor:
         self.output_dir = output_dir
         self.document = None
 
-    def extract(self, raw):
+    def extract_documents(self, raw):
         (self.output_dir / "raw_document.json").write_text(
             raw.model_dump_json(indent=2), encoding="utf-8"
         )
-        self.document = self.delegate.extract(raw)
-        (self.output_dir / "extracted_document.json").write_text(
-            self.document.model_dump_json(indent=2), encoding="utf-8"
-        )
-        return self.document
+        multi = getattr(self.delegate, "extract_documents", None)
+        documents = multi(raw) if multi else [self.delegate.extract(raw)]
+        if raw_response := getattr(self.delegate, "last_raw_response", None):
+            (self.output_dir / "wire_response.json").write_text(raw_response, encoding="utf-8")
+        self.document = documents[0] if len(documents) == 1 else None
+        if self.document:
+            (self.output_dir / "extracted_document.json").write_text(
+                self.document.model_dump_json(indent=2), encoding="utf-8"
+            )
+        else:
+            (self.output_dir / "extracted_documents.json").write_text(
+                json.dumps([d.model_dump(mode="json") for d in documents], indent=2),
+                encoding="utf-8",
+            )
+        return documents
+
+    def extract(self, raw):
+        documents = self.extract_documents(raw)
+        if len(documents) != 1:
+            raise ValueError("Office sample verification expects one logical document")
+        return documents[0]
 
 
 class ReplayExtractor:
@@ -149,8 +165,18 @@ def main():
                 "charge_count": len(operations) == len(expected.charges),
                 "charge_values": Counter(charge_key(op.charge_details) for op in operations)
                 == Counter(charge_key(charge) for charge in expected.charges),
-                "create": bool(operations)
-                and all(op.operation == Operation.CREATE for op in operations),
+                "operation": bool(operations)
+                and all(
+                    op.operation
+                    == (
+                        Operation.PENDING_REVIEW
+                        if extracted is not None
+                        and extracted.extraction_schema_version
+                        and "UNKNOWN_CHARGE_ALIAS" in op.audit_trail.warnings
+                        else Operation.CREATE
+                    )
+                    for op in operations
+                ),
                 "posting_type": bool(operations)
                 and all(
                     op.financial_attributes.posting_type == sample["posting_type"]

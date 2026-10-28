@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     llm_protocol: Literal["openai_compatible", "langchain_provider"] = "openai_compatible"
     llm_provider: str = "qwen"
-    llm_model_name: str = "qwen-plus"
+    llm_model_name: str = "qwen3.8-flash"
     llm_base_url: str | None = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     llm_api_key: SecretStr | None = None
     llm_temperature: float = 0
@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     llm_max_retries: int = Field(default=1, ge=0)
     llm_max_tokens: int = 8192
     llm_enable_thinking: bool = False
-    llm_structured_output_mode: Literal["prompt", "native"] = "prompt"
+    llm_structured_output_mode: Literal["prompt", "native"] = "native"
 
     ocr_api_url: str = "http://127.0.0.1:8001/process"
     ocr_task: str = "orderChange"

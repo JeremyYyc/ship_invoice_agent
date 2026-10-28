@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from pydantic import BaseModel, ConfigDict, Field
 
 from ship_invoice_agent.models import BillOperation, Operation, PostingType
@@ -23,7 +25,7 @@ class AssignmentChargeDetails(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     charge_item: str | None
-    amount: float | None
+    amount: Decimal | None
     currency: str | None
     payment_term: str | None
 
